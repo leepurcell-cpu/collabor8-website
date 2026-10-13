@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "1"  # bump on every publish (cache busting)
+VER = "2"  # bump on every publish (cache busting)
 BOOK = "#booking-link-to-be-supplied"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -86,20 +86,21 @@ def page(slug, title, desc, body, desc_placeholder=False):
     out.write_text(html)
     return slug
 
-def sec(inner, alt=False, cls=""):
-    return f'<section class="{"alt " if alt else ""}{cls}"><div class="wrap">{inner}</div></section>'
+def sec(inner, alt=False, cls="", id=""):
+    return f'<section{f' id="{id}"' if id else ""} class="{"alt " if alt else ""}{cls}"><div class="wrap">{inner}</div></section>'
 
 home = "".join([
  sec(f'''<span class="eyebrow">Senior advice for cross-border growth.</span>
 <h1>Where growth crosses borders, we advise.</h1>
 <p class="lead">A senior advisory firm for large, ambitious businesses. We solve hard problems of growth and change: AI agents, GCC entry and the right partnerships.</p>
 {book()}''', cls="hero"),
+ '''<nav class="jump" aria-label="On this page"><div class="wrap"><span class="jump-label">On this page</span><ul><li><a href="#what-we-do">What we do</a></li><li><a href="#ai-agents">AI agents</a></li><li><a href="#who-we-advise">Who we advise</a></li><li><a href="#where-we-work">Where we work</a></li><li><a href="#how-we-work">How we work</a></li><li><a href="#selected-work">Selected work</a></li></ul></div></nav>''',
  sec('''<span class="eyebrow">What we do</span>
 <div class="cols">
 <div><h3>Deploy</h3><p>AI agents change how work gets done, so they need roles, rules and clear lines of approval. We design that operating model around how your business really runs, then work with specialist engineers to build, test and deploy the agents.</p><p><a href="ai-agents/">Explore AI agents</a></p></div>
 <div><h3>Enter</h3><p>Businesses from outside the region face a long list of decisions. We test the market and your proposition, then set the order: onshore or free zone, licensing, core team and local partners. We manage delivery, so the first year is not spent fixing the first month.</p></div>
 <div><h3>Partner</h3><p>Digital finance businesses grow fastest through networks that already hold the customers. We bring operator agreements and the right fintech partner together, and structure the commercial terms so both sides want to keep the deal.</p></div>
-</div>''', alt=True),
+</div>''', alt=True, id="what-we-do"),
  sec('''<h2>AI agents, designed around your business</h2>
 <p>Many AI pilots impress in a demo and stall in the business. We start with how the business actually runs: its processes, roles and rules. We design agents to fit, set who approves and who audits, and work with specialist engineers to build and deploy them. Your people stay in charge.</p>
 <ol class="steps">
@@ -108,19 +109,19 @@ home = "".join([
 <li><p><strong>Build:</strong> engineer and test with our technology partner.</p></li>
 <li><p><strong>Govern:</strong> keep control as agents spread across the group.</p></li>
 <li><p><strong>Embed:</strong> train teams so they own the result.</p></li>
-</ol>'''),
+</ol>''', id="ai-agents"),
  sec('''<div class="two">
-<div><span class="eyebrow">Who we advise</span><p>We advise senior decision-makers: chief executives, strategy and commercial leaders, and founders. Our deepest experience is with large multinationals, in any industry, with the GCC as our home ground. We also work with fintechs and digital finance businesses growing across Africa, and with investors who need a clear view of a deal.</p></div>
-<div><span class="eyebrow">Where we work</span><p>Home ground: the GCC and wider Middle East. Regular work in Africa. Deep experience in the UK and Europe.</p></div>
+<div id="who-we-advise"><span class="eyebrow">Who we advise</span><p>We advise senior decision-makers: chief executives, strategy and commercial leaders, and founders. Our deepest experience is with large multinationals, in any industry, with the GCC as our home ground. We also work with fintechs and digital finance businesses growing across Africa, and with investors who need a clear view of a deal.</p></div>
+<div id="where-we-work"><span class="eyebrow">Where we work</span><p>Home ground: the GCC and wider Middle East. Regular work in Africa. Deep experience in the UK and Europe.</p></div>
 </div>''', alt=True),
  sec('''<span class="eyebrow">How we work</span>
-<p>Senior judgement from first call to delivery. Every engagement is led by a founder who has advised the head offices and regional hubs of large multinationals, not passed to a junior team. We recommend, then stay to see it done, and we bring the people who will run it into the plan from the start. Where the work needs engineering, we bring in specialist technology partners, so you have one plan and one accountable team.</p>'''),
+<p>Senior judgement from first call to delivery. Every engagement is led by a founder who has advised the head offices and regional hubs of large multinationals, not passed to a junior team. We recommend, then stay to see it done, and we bring the people who will run it into the plan from the start. Where the work needs engineering, we bring in specialist technology partners, so you have one plan and one accountable team.</p>''', id="how-we-work"),
  sec(f'''<span class="eyebrow">Selected work</span>
 <div class="cols work">
 <article><h3>Entering the Gulf</h3><p>International and large domestic businesses entered the UAE and Gulf with our support. We advised on strategy and regulatory structure, secured the required approvals and managed execution end to end.</p></article>
 <article><h3>Growing across Africa</h3><p>{ph("A leading African fintech [CHECK: client consent to this description] expanded across several markets through partnerships with tier-one mobile operators. We structured the deals and scaled lending products into new territories.")}</p></article>
 <article><h3>Turning a business around</h3><p>{ph("A regional operation of more than 120 people was restructured around clearer segments and a sharper proposition. The plan was built with the team who had to run it. Attrition fell from over 40% to a single departure in a year. [CHECK: figures cleared for publication]")}</p></article>
-</div>''', alt=True),
+</div>''', alt=True, id="selected-work"),
  sec(f'''<h2>Tell us what you are trying to achieve.</h2>
 <p>A short, confidential call is the quickest way to see whether we can help.</p>
 {book()}''', cls="cta"),
