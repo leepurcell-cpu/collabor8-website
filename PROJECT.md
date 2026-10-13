@@ -36,3 +36,4 @@
 - 2026-10-13: AI agents steps 3 and 4 updated (Lee-approved), CHECK placeholders removed; draft preview redeployed.
 - 2026-10-13: Nav trimmed to AI agents + Contact; Services, Sectors and markets, Insights, About hidden (noindex, unlinked, not in sitemap); Contact, Privacy, Cookie titles and meta set; draft preview redeployed.
 - 2026-10-13: GO LIVE (Lee approved). noindex removed from linked pages; phase1-preview merged into main. https://zesty-daffodil-39a0bd.netlify.app
+- 2026-10-13: layout-v2 branch (preview only): numbered chapters, navy accent #2C4A6E, alt backgrounds, draft lead-ins; link/button accent #1172A3 for AA on tinted panels. Draft: https://layout-v2--zesty-daffodil-39a0bd.netlify.app
