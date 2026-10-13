@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "18"  # bump on every publish (cache busting)
+VER = "19"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -91,10 +91,10 @@ def sec(inner, alt=False, cls="", id=""):
     return f'<section{f' id="{id}"' if id else ""} class="{"alt " if alt else ""}{cls}"><div class="wrap">{inner}</div></section>'
 
 # Chapter colour sequence (house palette): navy, cyan, green, orange, then navy for Book a call.
-CH_COLOUR = {"what-we-do":"green","selected-work":"orange","who-we-advise":"green","how-we-work":"orange","book-a-call":"green",
+CH_COLOUR = {"what-we-do":"green","our-team":"orange","selected-work":"green","who-we-advise":"orange","how-we-work":"green","book-a-call":"orange",
              "strategy":"green","how-we-deploy":"orange","typical-engagement":"green"}
 # v6: each chapter has its own light background
-CH_BG = {"what-we-do":"mint","selected-work":"sand","who-we-advise":"sky","how-we-work":"lilac","book-a-call":"mint",
+CH_BG = {"what-we-do":"mint","our-team":"sand","selected-work":"sky","who-we-advise":"lilac","how-we-work":"sand","book-a-call":"mint",
          "strategy":"mint","how-we-deploy":"sand","typical-engagement":"sky"}
 def chapter(num, name, anchor, heading, inner, lead="", nxt=None, alt=False, cls=""):
     """Numbered chapter: label (number + rule + name), heading, optional draft lead-in, content, optional Next link."""
@@ -124,18 +124,21 @@ home = "".join([
 <li><p><strong>Build:</strong> engineer and test with our technology partner.</p></li>
 <li><p><strong>Govern:</strong> keep control as agents spread across the group.</p></li>
 <li><p><strong>Embed:</strong> train teams so they own the result.</p></li>
-</ol></div>''', lead="Three ways we help large businesses grow across borders.", nxt=("Selected work","selected-work")),
- chapter("02","Selected work","selected-work","Selected work",'''<div class="cols work">
+</ol></div>''', lead="Three ways we help large businesses grow across borders.", nxt=("Our team","our-team")),
+ chapter("02","Our team","our-team","Senior leadership, the right team every time.",'''<p>Collabor8 brings together twelve exceptional leaders. Some are senior corporate experts with an entrepreneurial streak, and others are founders who have built, scaled and exited successful businesses. <span class="hl-green">Every engagement is led by two of them.</span></p>
+<p>Beyond that core, we have a substantial network of specialists and firms we have worked with for years. For each engagement we find the right people and deploy them at <span class="hl-orange">the right level</span> for the role and the responsibility.</p>
+<p>We also <span class="hl-yellow">work alongside your own teams</span>, so you can use internal people where that makes more sense. The team is shaped around the client and focused on creating value from the start.</p>''', nxt=("Selected work","selected-work")),
+ chapter("03","Selected work","selected-work","Selected work",'''<div class="cols work">
 <article><h3>Entering the Gulf</h3><p>International and large domestic businesses entered the UAE and Gulf with our support. We advised on strategy and regulatory structure, secured the required approvals and managed execution end to end.</p></article>
 <article><h3>Growing across Africa</h3><p>A leading African fintech expanded across several markets through partnerships with major regional players. We structured the deals and scaled lending products into new territories.</p></article>
 <article><h3>Turning a business around</h3><p>A regional operation of more than 120 people was restructured around clearer segments and a sharper proposition. The plan was built with the team who had to run it. Attrition fell from <span class="hl-orange">over 40%</span> to <span class="hl-green">a single departure</span> in a year.</p></article>
 </div>''', lead="Decisions like yours, and how they turned out.", nxt=("Who we advise, and where","who-we-advise"), alt=True),
- chapter("03","Who we advise, and where","who-we-advise","Who we advise, and where",'''<div class="two">
+ chapter("04","Who we advise, and where","who-we-advise","Who we advise, and where",'''<div class="two">
 <div><h3>Who we advise</h3><p>We advise senior decision-makers: chief executives, strategy and commercial leaders, and founders. Our deepest experience is with large multinationals, in any industry, with the GCC as our home ground. We also work with fintechs and digital finance businesses growing across Africa, and with investors who need a clear view of a deal.</p></div>
 <div><h3>Where we work</h3><p>Home ground: <span class="hl-orange">the GCC and wider Middle East</span>. Regular work in <span class="hl-orange">Africa</span>. Deep experience in the UK and Europe.</p></div>
 </div>''', lead="The leaders we work with, and the markets we know.", nxt=("How we work","how-we-work")),
- chapter("04","How we work","how-we-work","How we work",'''<p>Senior judgement from first call to delivery. Every engagement is led by a founder who has advised the head offices and regional hubs of large multinationals, <span class="hl-yellow">not passed to a junior team</span>. We recommend, then stay to see it done, and we bring the people who will run it into the plan from the start. Where the work needs engineering, we bring in specialist technology partners, so you have one plan and one accountable team.</p>''', lead="Senior judgement, from first call to delivery.", nxt=("Book a call","book-a-call"), alt=True),
- chapter("05","Book a call","book-a-call","Tell us what you are trying to achieve.",f'''<div class="cta-panel"><p>A short, confidential call is the quickest way to see whether we can help.</p>{book()}</div>''', cls="ch-cta"),
+ chapter("05","How we work","how-we-work","How we work",'''<p>Senior judgement from first call to delivery. Every engagement is led by a founder who has advised the head offices and regional hubs of large multinationals, <span class="hl-yellow">not passed to a junior team</span>. We recommend, then stay to see it done, and we bring the people who will run it into the plan from the start. Where the work needs engineering, we bring in specialist technology partners, so you have one plan and one accountable team.</p>''', lead="Senior judgement, from first call to delivery.", nxt=("Book a call","book-a-call"), alt=True),
+ chapter("06","Book a call","book-a-call","Tell us what you are trying to achieve.",f'''<div class="cta-panel"><p>A short, confidential call is the quickest way to see whether we can help.</p>{book()}</div>''', cls="ch-cta"),
 ])
 page("", "Collabor8 | Senior advice for cross-border growth",
  "Collabor8 is a senior advisory firm helping large, ambitious businesses with AI agents, GCC market entry and strategic growth. Book a call.", home)
