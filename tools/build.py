@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "15"  # bump on every publish (cache busting)
+VER = "16"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -91,8 +91,11 @@ def sec(inner, alt=False, cls="", id=""):
     return f'<section{f' id="{id}"' if id else ""} class="{"alt " if alt else ""}{cls}"><div class="wrap">{inner}</div></section>'
 
 # Chapter colour sequence (house palette): navy, cyan, green, orange, then navy for Book a call.
-CH_COLOUR = {"what-we-do":"navy","selected-work":"cyan","who-we-advise":"green","how-we-work":"orange","book-a-call":"navy",
-             "strategy":"navy","how-we-deploy":"cyan","typical-engagement":"green"}
+CH_COLOUR = {"what-we-do":"green","selected-work":"orange","who-we-advise":"green","how-we-work":"orange","book-a-call":"green",
+             "strategy":"green","how-we-deploy":"orange","typical-engagement":"green"}
+# v6: each chapter has its own light background
+CH_BG = {"what-we-do":"mint","selected-work":"sand","who-we-advise":"sky","how-we-work":"lilac","book-a-call":"mint",
+         "strategy":"mint","how-we-deploy":"sand","typical-engagement":"sky"}
 def chapter(num, name, anchor, heading, inner, lead="", nxt=None, alt=False, cls=""):
     """Numbered chapter: label (number + rule + name), heading, optional draft lead-in, content, optional Next link."""
     h = f'<div class="ch-label"><span class="ch-num" aria-hidden="true">{num}</span><span class="ch-name"><span class="visually-hidden">Chapter {num}: </span>{name}</span></div>'
@@ -100,17 +103,17 @@ def chapter(num, name, anchor, heading, inner, lead="", nxt=None, alt=False, cls
     if lead: h += f'<p class="ch-lead">{lead}</p>'
     h += f'<div class="ch-body">{inner}</div>'
     if nxt: h += f'<p class="ch-next"><a href="#{nxt[1]}"><span class="ch-next-num c-{CH_COLOUR[nxt[1]]}" aria-hidden="true">{int(num)+1:02d}</span><span>Next: {nxt[0]}</span><span class="ch-next-arrow" aria-hidden="true">&darr;</span></a></p>'
-    return f'<section id="{anchor}" class="chapter c-{CH_COLOUR[anchor]}{" ch-alt" if alt else ""} {cls}"><div class="wrap">{h}</div></section>'
+    return f'<section id="{anchor}" class="chapter c-{CH_COLOUR[anchor]} bg-{CH_BG[anchor]} {cls}"><div class="wrap">{h}</div></section>'
 
 home = "".join([
  sec(f'''<span class="eyebrow">Senior advice for cross-border growth.</span>
 <h1>Where growth crosses borders, we advise.</h1>
-<p class="lead">A senior advisory firm for large, ambitious businesses. We solve hard problems of growth and change: AI agents, GCC entry and the right partnerships.</p>
+<p class="lead">A senior advisory firm for large, ambitious businesses. We solve hard problems of growth and change: <span class="hl-yellow">AI agents, GCC entry and the right partnerships</span>.</p>
 {book()}''', cls="hero"),
  chapter("01","What we do","what-we-do","What we do",'''<div class="cols">
-<div><h3 class="t-cyan">Deploy</h3><p>AI agents change how work gets done, so they need roles, rules and clear lines of approval. We design that operating model around how your business really runs, then work with specialist engineers to build, test and deploy the agents.</p><p><a href="ai-agents/">Explore AI agents</a></p></div>
-<div><h3 class="t-green">Enter</h3><p>Businesses from outside the region face a long list of decisions. We test the market and your proposition, then set the order: onshore or free zone, licensing, core team and local partners. We manage delivery, so the first year is not spent fixing the first month.</p></div>
-<div><h3 class="t-orange">Partner</h3><p>Digital finance businesses grow fastest through networks that already hold the customers. We bring operator agreements and the right fintech partner together, and structure the commercial terms so both sides want to keep the deal.</p></div>
+<div><h3 class="t-cyan">Deploy</h3><p>AI agents change how work gets done, so they need roles, rules and clear lines of approval. We design that operating model around how your business really runs, then work with specialist engineers to <span class="hl-green">build, test and deploy</span> the agents.</p><p><a href="ai-agents/">Explore AI agents</a></p></div>
+<div><h3 class="t-green">Enter</h3><p>Businesses from outside the region face a long list of decisions. We test the market and your proposition, then set the order: onshore or free zone, licensing, core team and local partners. We manage delivery, so <span class="hl-yellow">the first year is not spent fixing the first month</span>.</p></div>
+<div><h3 class="t-orange">Partner</h3><p>Digital finance businesses grow fastest through networks that already hold the customers. We bring operator agreements and the right fintech partner together, and structure the commercial terms so <span class="hl-green">both sides want to keep the deal</span>.</p></div>
 </div>
 <div class="subblock">
 <h3>AI agents, designed around your business</h3>
@@ -125,13 +128,13 @@ home = "".join([
  chapter("02","Selected work","selected-work","Selected work",'''<div class="cols work">
 <article><h3>Entering the Gulf</h3><p>International and large domestic businesses entered the UAE and Gulf with our support. We advised on strategy and regulatory structure, secured the required approvals and managed execution end to end.</p></article>
 <article><h3>Growing across Africa</h3><p>A leading African fintech expanded across several markets through partnerships with tier-one mobile operators. We structured the deals and scaled lending products into new territories.</p></article>
-<article><h3>Turning a business around</h3><p>A regional operation of <strong class="t-cyan">more than 120 people</strong> was restructured around clearer segments and a sharper proposition. The plan was built with the team who had to run it. Attrition fell from <strong class="t-orange">over 40%</strong> to <strong class="t-green">a single departure</strong> in a year.</p></article>
+<article><h3>Turning a business around</h3><p>A regional operation of more than 120 people was restructured around clearer segments and a sharper proposition. The plan was built with the team who had to run it. Attrition fell from <span class="hl-orange">over 40%</span> to <span class="hl-green">a single departure</span> in a year.</p></article>
 </div>''', lead="Decisions like yours, and how they turned out.", nxt=("Who we advise, and where","who-we-advise"), alt=True),
  chapter("03","Who we advise, and where","who-we-advise","Who we advise, and where",'''<div class="two">
 <div><h3>Who we advise</h3><p>We advise senior decision-makers: chief executives, strategy and commercial leaders, and founders. Our deepest experience is with large multinationals, in any industry, with the GCC as our home ground. We also work with fintechs and digital finance businesses growing across Africa, and with investors who need a clear view of a deal.</p></div>
-<div><h3>Where we work</h3><p>Home ground: the GCC and wider Middle East. Regular work in Africa. Deep experience in the UK and Europe.</p></div>
+<div><h3>Where we work</h3><p>Home ground: <span class="hl-orange">the GCC and wider Middle East</span>. Regular work in <span class="hl-orange">Africa</span>. Deep experience in the UK and Europe.</p></div>
 </div>''', lead="The leaders we work with, and the markets we know.", nxt=("How we work","how-we-work")),
- chapter("04","How we work","how-we-work","How we work",'''<p>Senior judgement from first call to delivery. Every engagement is led by a founder who has advised the head offices and regional hubs of large multinationals, not passed to a junior team. We recommend, then stay to see it done, and we bring the people who will run it into the plan from the start. Where the work needs engineering, we bring in specialist technology partners, so you have one plan and one accountable team.</p>''', lead="Senior judgement, from first call to delivery.", nxt=("Book a call","book-a-call"), alt=True),
+ chapter("04","How we work","how-we-work","How we work",'''<p>Senior judgement from first call to delivery. Every engagement is led by a founder who has advised the head offices and regional hubs of large multinationals, <span class="hl-yellow">not passed to a junior team</span>. We recommend, then stay to see it done, and we bring the people who will run it into the plan from the start. Where the work needs engineering, we bring in specialist technology partners, so you have one plan and one accountable team.</p>''', lead="Senior judgement, from first call to delivery.", nxt=("Book a call","book-a-call"), alt=True),
  chapter("05","Book a call","book-a-call","Tell us what you are trying to achieve.",f'''<div class="cta-panel"><p>A short, confidential call is the quickest way to see whether we can help.</p>{book()}</div>''', cls="ch-cta"),
 ])
 page("", "Collabor8 | Senior advice for cross-border growth",
@@ -147,10 +150,10 @@ steps = [
 ai = "".join([
  sec(f'''<span class="eyebrow">AI agents</span>
 <h1>AI agents that work inside your business</h1>
-<p class="lead">We design how AI agents work in complex organisations: their roles, rules and approvals. Specialist engineers build them. People stay in charge.</p>
+<p class="lead">We design how AI agents work in complex organisations: their roles, rules and approvals. Specialist engineers build them. <span class="hl-yellow">People stay in charge.</span></p>
 <p>Many AI pilots impress in a demo and stall in the business. The cause is rarely the technology. It is unclear roles, missing rules and teams who were not asked. We start with how the business actually runs, then design agents to fit it.</p>
 {book()}''', cls="hero"),
- chapter("01","Strategy and technology, together","strategy","Strategy and technology, together",'''<p>Most AI work fails from one side. Some firms build well but do not know the business. Some advisers know the business but cannot build. Collabor8 pairs senior business advice with deep engineering. One side judges the business, the process and the risk. The other builds and runs the technology. You get one team.</p>''', nxt=("How we deploy agents","how-we-deploy")),
+ chapter("01","Strategy and technology, together","strategy","Strategy and technology, together",'''<p>Most AI work fails from one side. Some firms build well but do not know the business. Some advisers know the business but cannot build. Collabor8 pairs senior business advice with deep engineering. One side judges the business, the process and the risk. The other builds and runs the technology. <span class="hl-green">You get one team.</span></p>''', nxt=("How we deploy agents","how-we-deploy")),
  chapter("02","How we deploy agents","how-we-deploy","How we deploy agents",'<ol class="steps steps-line" id="steps">' + "".join(f'<li><div><h3>{t}</h3><p>{d}</p></div></li>' for t,d in steps) + '</ol>', nxt=("Typical engagement","typical-engagement"), alt=True),
  chapter("03","Typical engagement","typical-engagement","Typical engagement",'''<p>It starts with an informal 30 minute virtual coffee, to talk through what you are trying to achieve and whether we can help. If there is a fit, we hold a working session of two to three hours to map processes and roles, shaped around your business. Then a design phase and a pilot of one or two agents in a real process. Governance is built in from the start. Scope, fees and timing are agreed in writing before work begins.</p>''', nxt=("Book a call","book-a-call")),
  chapter("04","Book a call","book-a-call","Build a team of agents, not a single tool.",f'''<div class="cta-panel"><p>We start by mapping your business: the systems, tools and subscriptions you rely on, and how each team really works. Automation brings the first quick wins. The bigger gain is agents that take on whole jobs, each with a defined role, its own skills and a knowledge base to draw on. Together they form an organisation chart of agents, used by one person or shared across hundreds. A short, confidential call is the place to start.</p>{book()}</div>''', cls="ch-cta"),
