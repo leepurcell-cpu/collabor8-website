@@ -122,3 +122,17 @@ html{scroll-behavior:smooth}
 .steps-line h3{margin-top:4px}
 .steps li::before{color:var(--navy);border-color:var(--navy)}
 :root{--accent:#1172A3}
+/* ===== chapters v3: prominent chapter markers ===== */
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ch-label{gap:16px;margin-bottom:24px;text-transform:none;letter-spacing:0}
+.ch-label .ch-num{display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;font-size:16px;font-weight:600;letter-spacing:0;font-variant-numeric:tabular-nums}
+.ch-name{font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);min-width:0}
+@media(min-width:900px){.ch-label .ch-num{width:56px;height:56px;font-size:20px}.ch-name{font-size:18px}}
+.ch-rule{display:none}
+.ch-next a{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:600}
+.ch-next a::after{content:none}
+.ch-next-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:600;flex:none}
+.ch-next-arrow{font-size:18px;line-height:1}
+@media(hover:hover){.ch-next a:hover .ch-next-arrow{transform:translateY(2px)}.ch-next-arrow{transition:transform .15s}}
+/* step markers: navy filled, white numbers */
+.steps li::before,.steps-line li::before{background:var(--navy)!important;border-color:var(--navy)!important;color:#fff!important}
