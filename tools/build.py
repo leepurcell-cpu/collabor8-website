@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "12"  # bump on every publish (cache busting)
+VER = "13"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -94,7 +94,7 @@ def chapter(num, name, anchor, heading, inner, lead="", nxt=None, alt=False, cls
     """Numbered chapter: label (number + rule + name), heading, optional draft lead-in, content, optional Next link."""
     h = f'<div class="ch-label"><span class="ch-num">{num}</span><span class="ch-rule" aria-hidden="true"></span><span>{name}</span></div>'
     h += f'<h2 class="ch-title">{heading}</h2>'
-    if lead: h += f'<p class="ch-lead"><span class="draft-copy">{lead}</span></p>'
+    if lead: h += f'<p class="ch-lead">{lead}</p>'
     h += f'<div class="ch-body">{inner}</div>'
     if nxt: h += f'<p class="ch-next"><a href="#{nxt[1]}">Next: {nxt[0]}</a></p>'
     return f'<section id="{anchor}" class="chapter{" ch-alt" if alt else ""} {cls}"><div class="wrap">{h}</div></section>'

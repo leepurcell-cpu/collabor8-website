@@ -107,7 +107,6 @@ html{scroll-behavior:smooth}
 .ch-next a{font-size:15px;font-weight:600;color:var(--accent);text-decoration:none}
 .ch-next a::after{content:" \2193"}
 @media(hover:hover){.ch-next a:hover{text-decoration:underline}}
-.draft-copy{background:#FFF8E1;box-shadow:0 0 0 3px #FFF8E1;border-radius:2px}
 .subblock{margin-top:64px;padding-top:40px;border-top:1px solid var(--line)}
 .subblock h3{font-size:24px}
 .work>article{border-top-color:var(--navy)!important}

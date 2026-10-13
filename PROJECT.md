@@ -16,6 +16,7 @@
 
 **Quirks and gotchas:**
 - Brand accent #1482B8 fails WCAG AA with white text (4.27:1) and as link text on #FAFAF7 (4.09:1). Buttons and links use #137AAD (4.76:1 on white, 4.55:1 on #FAFAF7). #1482B8 is kept for decorative rules and step markers only.
+- Since layout-v2, links and buttons use #1172A3 (5.30 with white, 4.94 on #F7F7F5, 4.75 on #EEF3F8) because #137AAD fails on the tinted chapter backgrounds. Soft navy accent #2C4A6E for chapter numbers, rules and markers only.
 - Linked pages are indexable. Hidden stubs (Services, Sectors and markets, Insights, About) carry noindex (`noindex=True` in build.py), are unlinked and not in the sitemap.
 - `BASE` in `tools/build.py` and the URL in `site/robots.txt` point to the netlify.app URL; change to the real domain at launch (canonical, OG, sitemap).
 - Text in square brackets renders as highlighted placeholders (`.ph`). None may go live.
@@ -37,3 +38,4 @@
 - 2026-10-13: Nav trimmed to AI agents + Contact; Services, Sectors and markets, Insights, About hidden (noindex, unlinked, not in sitemap); Contact, Privacy, Cookie titles and meta set; draft preview redeployed.
 - 2026-10-13: GO LIVE (Lee approved). noindex removed from linked pages; phase1-preview merged into main. https://zesty-daffodil-39a0bd.netlify.app
 - 2026-10-13: layout-v2 branch (preview only): numbered chapters, navy accent #2C4A6E, alt backgrounds, draft lead-ins; link/button accent #1172A3 for AA on tinted panels. Draft: https://layout-v2--zesty-daffodil-39a0bd.netlify.app
+- 2026-10-13: layout-v2 LIVE (Lee approved): numbered chapters, navy accent, lead-ins final (highlight removed), links/buttons #1172A3. https://zesty-daffodil-39a0bd.netlify.app
