@@ -28,3 +28,4 @@
 - 2026-10-13: Netlify site zesty-daffodil-39a0bd created and linked to main (holding page is production). Phase 1 (home, AI agents, nav, footer, 7 stubs) on branch phase1-preview, draft deploy for review.
 - 2026-10-13: Added "On this page" jump list below home hero (approved by Lee); redeployed draft preview.
 - 2026-10-13: Lee edits: ™ on wordmark, two CHECK placeholders removed, Book a call = mailto, legal entity line placeholder; draft preview redeployed.
+- 2026-10-13: Footer legal line and registered address from trade licence; draft preview redeployed.
