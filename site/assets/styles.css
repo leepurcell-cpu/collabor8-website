@@ -136,3 +136,21 @@ html{scroll-behavior:smooth}
 @media(hover:hover){.ch-next a:hover .ch-next-arrow{transform:translateY(2px)}.ch-next-arrow{transition:transform .15s}}
 /* step markers: navy filled, white numbers */
 .steps li::before,.steps-line li::before{background:var(--navy)!important;border-color:var(--navy)!important;color:#fff!important}
+/* ===== palette v4: house palette per chapter =====
+   fill = circle/marker fill (white text >= 4.5:1), txt = AA text shade, rule = decorative hue */
+.c-navy{--c-fill:#2C4A6E;--c-txt:#2C4A6E;--c-rule:#2C4A6E;--c-tint:#EEF3F8}
+.c-cyan{--c-fill:#15749E;--c-txt:#15749E;--c-rule:#1DA1DC;--c-tint:#E8F6FC}
+.c-green{--c-fill:#0E7D54;--c-txt:#0E7D54;--c-rule:#12A06C;--c-tint:#EEFAF4}
+.c-orange{--c-fill:#FFF4EA;--c-txt:#B05217;--c-rule:#EE6F1F;--c-tint:#FFF4EA}
+.chapter .ch-label .ch-num{background:var(--c-fill);color:#fff}
+.chapter.c-orange .ch-label .ch-num{color:var(--c-txt);box-shadow:inset 0 0 0 2px var(--c-rule)}
+.chapter .ch-name{color:var(--c-txt)}
+.ch-next-num{background:var(--c-fill)!important;color:#fff}
+.ch-next-num.c-orange{color:var(--c-txt);box-shadow:inset 0 0 0 2px var(--c-rule)}
+.chapter .work>article{border-top-color:var(--c-rule)!important}
+.chapter.c-cyan .work h3{color:var(--c-txt)}
+.chapter .steps li::before{background:var(--c-fill)!important;border-color:var(--c-fill)!important;color:#fff!important}
+.chapter .subblock{border-top-color:var(--line)}
+.t-cyan{color:#15749E}.t-green{color:#0E7D54}.t-orange{color:#B05217}
+strong.t-cyan,strong.t-green,strong.t-orange{font-weight:600}
+.hero{border-bottom-color:#2C4A6E}

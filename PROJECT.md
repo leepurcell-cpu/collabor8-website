@@ -40,3 +40,4 @@
 - 2026-10-13: layout-v2 branch (preview only): numbered chapters, navy accent #2C4A6E, alt backgrounds, draft lead-ins; link/button accent #1172A3 for AA on tinted panels. Draft: https://layout-v2--zesty-daffodil-39a0bd.netlify.app
 - 2026-10-13: layout-v2 LIVE (Lee approved): numbered chapters, navy accent, lead-ins final (highlight removed), links/buttons #1172A3. https://zesty-daffodil-39a0bd.netlify.app
 - 2026-10-13: chapters-v3 branch (preview only): navy filled chapter circles, larger chapter names, stronger Next links, filled step markers. Draft: https://chapters-v3--zesty-daffodil-39a0bd.netlify.app
+- 2026-10-13: palette-v4 branch (preview only): chapter colours navy/cyan/green/orange/navy, coloured pillar names and key figures. Draft: https://palette-v4--zesty-daffodil-39a0bd.netlify.app
