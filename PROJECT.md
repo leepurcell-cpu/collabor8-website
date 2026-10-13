@@ -34,3 +34,4 @@
 - 2026-10-13: AI agents closing call to action replaced with Lee-approved copy; draft preview redeployed.
 - 2026-10-13: Cookie banner text added; draft preview redeployed.
 - 2026-10-13: AI agents steps 3 and 4 updated (Lee-approved), CHECK placeholders removed; draft preview redeployed.
+- 2026-10-13: Nav trimmed to AI agents + Contact; Services, Sectors and markets, Insights, About hidden (noindex, unlinked, not in sitemap); Contact, Privacy, Cookie titles and meta set; draft preview redeployed.

@@ -4,11 +4,11 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "9"  # bump on every publish (cache busting)
+VER = "10"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
-NAV = [("Services","services/"),("AI agents","ai-agents/"),("Sectors and markets","sectors-and-markets/"),("Insights","insights/"),("About","about/"),("Contact","contact/")]
+NAV = [("AI agents","ai-agents/"),("Contact","contact/")]  # Services, Sectors and markets, Insights, About hidden for now
 
 def ph(s):
     """Wrap every [ ... ] in a highlighted placeholder mark."""
@@ -154,16 +154,20 @@ ai = "".join([
 page("ai-agents/", "AI agents | Collabor8",
  "Collabor8 designs how AI agents work inside complex organisations: their roles, rules and approvals, built with specialist engineering partners.", ai)
 
-STUBS = [("Services","services/"),("Sectors and markets","sectors-and-markets/"),("Insights","insights/"),("About","about/"),("Contact","contact/"),("Privacy policy","privacy-policy/"),("Cookie notice","cookie-notice/")]
-for t, s in STUBS:
-    extra = ""
-    if s == "contact/":
-        extra = f'<p><a href="mailto:{EMAIL}">{EMAIL}</a></p><p><a href="{LI}" rel="noopener">linkedin.com/in/lee-purcell-588b61b</a></p>{book()}'
+# Hidden "coming soon" pages: kept in the repo, noindex, not linked from nav, footer or sitemap.
+HIDDEN = [("Services","services/"),("Sectors and markets","sectors-and-markets/"),("Insights","insights/"),("About","about/")]
+for t, s in HIDDEN:
     body = sec(f'''<h1>{t}</h1>
 <p>Content coming soon</p>
-<p class="muted">{ph(f"[PAGE TITLE TO CONFIRM: {t} | Collabor8]")}<br>{ph("[META DESCRIPTION TO BE SUPPLIED]")}</p>
-{extra}''', cls="hero stub")
+<p class="muted">{ph(f"[PAGE TITLE TO CONFIRM: {t} | Collabor8]")}<br>{ph("[META DESCRIPTION TO BE SUPPLIED]")}</p>''', cls="hero stub")
     page(s, f"{t} | Collabor8", "[META DESCRIPTION TO BE SUPPLIED]", body)
+
+page("contact/", "Contact | Collabor8", "Contact Collabor8. Book a short, confidential call with Lee Purcell.",
+     sec(f'''<h1>Contact</h1>
+<p><a href="mailto:{EMAIL}">{EMAIL}</a></p><p><a href="{LI}" rel="noopener">linkedin.com/in/lee-purcell-588b61b</a></p>{book()}''', cls="hero stub"))
+for t, s, d in [("Privacy policy","privacy-policy/","Collabor8 privacy policy."),("Cookie notice","cookie-notice/","Collabor8 cookie notice.")]:
+    page(s, f"{t} | Collabor8", d, sec(f'''<h1>{t}</h1>
+<p>Content coming soon</p>''', cls="hero stub"))
 
 urls = [""] + [h for _,h in NAV] + ["privacy-policy/","cookie-notice/"]
 (ROOT/"sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{BASE}/{u}</loc></url>\n" for u in urls) + "</urlset>\n")
