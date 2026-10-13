@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "8"  # bump on every publish (cache busting)
+VER = "9"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -132,8 +132,8 @@ page("", "Collabor8 | Senior advice for cross-border growth",
 steps = [
  ("Map","We study your processes, roles and decision points, and find where agents can take on work safely. We recommend which tasks to hand over first and which to leave with people."),
  ("Design","We define each agent's role, its rules and the point where a person approves. Designs reflect how work really flows across countries, functions and business units, not how the organisation chart says it should."),
- ("Build","Our technology partner engineers and tests the agents with your teams. They can run where suits you: public cloud, a controlled setup, or fully inside your own environment. [CHECK: deployment options the partner supports]"),
- ("Govern","We set who approves, who audits and how control is kept as agents spread across a group. Every action can be traced to an agent and a policy. [CHECK: traceability claim]"),
+ ("Build","Our technology partner engineers and tests the agents with your teams. Where they run is your choice. We start from your infrastructure, rules, regulation and data sovereignty needs, then deploy to fit: public cloud, a controlled setup, or fully inside your own environment."),
+ ("Govern","We set who approves, who audits and how control is kept as agents spread across a group. Every action can be traced to an agent and a policy."),
  ("Embed","Agents last only if people own them. We train teams, adjust roles and involve the people who run each process from day one, so the change is theirs."),
 ]
 ai = "".join([
@@ -142,7 +142,7 @@ ai = "".join([
 <p class="lead">We design how AI agents work in complex organisations: their roles, rules and approvals. Specialist engineers build them. People stay in charge.</p>
 {book()}''', cls="hero"),
  sec('''<p>Many AI pilots impress in a demo and stall in the business. The cause is rarely the technology. It is unclear roles, missing rules and teams who were not asked. We start with how the business actually runs, then design agents to fit it.</p>''', alt=True),
- sec('<span class="eyebrow">How we deploy agents</span><ol class="steps">' + "".join(f'<li><div><h3>{t}</h3><p>{ph(d)}</p></div></li>' for t,d in steps) + '</ol>'),
+ sec('<span class="eyebrow">How we deploy agents</span><ol class="steps" id="steps">' + "".join(f'<li><div><h3>{t}</h3><p>{ph(d)}</p></div></li>' for t,d in steps) + '</ol>'),
  sec('''<span class="eyebrow">Strategy and technology, together</span>
 <p>Most AI work fails from one side. Some firms build well but do not know the business. Some advisers know the business but cannot build. Collabor8 pairs senior business advice with deep engineering. One side judges the business, the process and the risk. The other builds and runs the technology. You get one team.</p>''', alt=True),
  sec(f'''<span class="eyebrow" id="typical-engagement">Typical engagement</span>

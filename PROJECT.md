@@ -33,3 +33,4 @@
 - 2026-10-13: AI agents Typical engagement wording approved by Lee; draft preview redeployed.
 - 2026-10-13: AI agents closing call to action replaced with Lee-approved copy; draft preview redeployed.
 - 2026-10-13: Cookie banner text added; draft preview redeployed.
+- 2026-10-13: AI agents steps 3 and 4 updated (Lee-approved), CHECK placeholders removed; draft preview redeployed.
