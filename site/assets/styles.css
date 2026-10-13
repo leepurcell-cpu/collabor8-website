@@ -206,3 +206,4 @@ h1,h2,h3{color:var(--head)}
 /* cookie banner on green system */
 .cookie a{color:var(--accent)}
 strong,b{font-weight:600}
+.ch-body>*:last-child,.ch-body>*:last-child>*:last-child{margin-bottom:0}

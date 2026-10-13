@@ -47,3 +47,4 @@
 - 2026-10-13: team-v7 branch (preview only): new home chapter 02 Our team, chapters renumbered to 6. Draft: https://team-v7--zesty-daffodil-39a0bd.netlify.app
 - 2026-10-13: team-v7: yellow word highlight changed to soft blue #BAE6FD (class hl-blue); draft redeployed.
 - 2026-10-13: team-v7: hl-blue now blue text #1172A3/600, no band; draft redeployed.
+- 2026-10-13: team-v7: Next links removed from all chapters; draft redeployed.
