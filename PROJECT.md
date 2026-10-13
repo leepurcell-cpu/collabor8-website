@@ -48,3 +48,4 @@
 - 2026-10-13: team-v7: yellow word highlight changed to soft blue #BAE6FD (class hl-blue); draft redeployed.
 - 2026-10-13: team-v7: hl-blue now blue text #1172A3/600, no band; draft redeployed.
 - 2026-10-13: team-v7: Next links removed from all chapters; draft redeployed.
+- 2026-10-13: team-v7 LIVE (Lee approved): Our team chapter, blue text highlights, Next links removed. https://zesty-daffodil-39a0bd.netlify.app
