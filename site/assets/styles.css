@@ -202,7 +202,7 @@ h1,h2,h3{color:var(--head)}
 /* highlighted words (markup only, no copy changes) */
 .hl-green{color:var(--g);font-weight:600}
 .hl-orange{color:var(--o);font-weight:600}
-.hl-yellow{color:var(--head);box-shadow:inset 0 -0.45em 0 #FDE68A;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl-blue{color:var(--head);box-shadow:inset 0 -0.45em 0 #BAE6FD;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 /* cookie banner on green system */
 .cookie a{color:var(--accent)}
 strong,b{font-weight:600}

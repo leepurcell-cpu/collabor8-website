@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "19"  # bump on every publish (cache busting)
+VER = "20"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -108,11 +108,11 @@ def chapter(num, name, anchor, heading, inner, lead="", nxt=None, alt=False, cls
 home = "".join([
  sec(f'''<span class="eyebrow">Senior advice for cross-border growth.</span>
 <h1>Where growth crosses borders, we advise.</h1>
-<p class="lead">A senior advisory firm for large, ambitious businesses. We solve hard problems of growth and change: <span class="hl-yellow">AI agents, GCC entry and strategic growth</span>.</p>
+<p class="lead">A senior advisory firm for large, ambitious businesses. We solve hard problems of growth and change: <span class="hl-blue">AI agents, GCC entry and strategic growth</span>.</p>
 {book()}''', cls="hero"),
  chapter("01","What we do","what-we-do","What we do",'''<div class="cols">
 <div><h3 class="t-cyan">Deploy</h3><p>AI agents change how work gets done, so they need roles, rules and clear lines of approval. We design that operating model around how your business really runs, then work with specialist engineers to <span class="hl-green">build, test and deploy</span> the agents.</p><p><a href="ai-agents/">Explore AI agents</a></p></div>
-<div><h3 class="t-green">Enter</h3><p>Businesses from outside the region face a long list of decisions. We test the market and your proposition, then set the order: onshore or free zone, licensing, core team and local partners. We manage delivery, so <span class="hl-yellow">the first year is not spent fixing the first month</span>.</p></div>
+<div><h3 class="t-green">Enter</h3><p>Businesses from outside the region face a long list of decisions. We test the market and your proposition, then set the order: onshore or free zone, licensing, core team and local partners. We manage delivery, so <span class="hl-blue">the first year is not spent fixing the first month</span>.</p></div>
 <div><h3 class="t-orange">Grow</h3><p>Growth rarely comes from going it alone. We find the companies, partners and options that move a business forward, then bring the right people to the table. We test the fit, broker the introduction and structure the terms so <span class="hl-green">both sides want to keep the deal</span>.</p></div>
 </div>
 <div class="subblock">
@@ -127,7 +127,7 @@ home = "".join([
 </ol></div>''', lead="Three ways we help large businesses grow across borders.", nxt=("Our team","our-team")),
  chapter("02","Our team","our-team","Senior leadership, the right team every time.",'''<p>Collabor8 brings together twelve exceptional leaders. Some are senior corporate experts with an entrepreneurial streak, and others are founders who have built, scaled and exited successful businesses. <span class="hl-green">Every engagement is led by two of them.</span></p>
 <p>Beyond that core, we have a substantial network of specialists and firms we have worked with for years. For each engagement we find the right people and deploy them at <span class="hl-orange">the right level</span> for the role and the responsibility.</p>
-<p>We also <span class="hl-yellow">work alongside your own teams</span>, so you can use internal people where that makes more sense. The team is shaped around the client and focused on creating value from the start.</p>''', nxt=("Selected work","selected-work")),
+<p>We also <span class="hl-blue">work alongside your own teams</span>, so you can use internal people where that makes more sense. The team is shaped around the client and focused on creating value from the start.</p>''', nxt=("Selected work","selected-work")),
  chapter("03","Selected work","selected-work","Selected work",'''<div class="cols work">
 <article><h3>Entering the Gulf</h3><p>International and large domestic businesses entered the UAE and Gulf with our support. We advised on strategy and regulatory structure, secured the required approvals and managed execution end to end.</p></article>
 <article><h3>Growing across Africa</h3><p>A leading African fintech expanded across several markets through partnerships with major regional players. We structured the deals and scaled lending products into new territories.</p></article>
@@ -137,7 +137,7 @@ home = "".join([
 <div><h3>Who we advise</h3><p>We advise senior decision-makers: chief executives, strategy and commercial leaders, and founders. Our deepest experience is with large multinationals, in any industry, with the GCC as our home ground. We also work with fintechs and digital finance businesses growing across Africa, and with investors who need a clear view of a deal.</p></div>
 <div><h3>Where we work</h3><p>Home ground: <span class="hl-orange">the GCC and wider Middle East</span>. Regular work in <span class="hl-orange">Africa</span>. Deep experience in the UK and Europe.</p></div>
 </div>''', lead="The leaders we work with, and the markets we know.", nxt=("How we work","how-we-work")),
- chapter("05","How we work","how-we-work","How we work",'''<p>Senior judgement from first call to delivery. Every engagement is led by a founder who has advised the head offices and regional hubs of large multinationals, <span class="hl-yellow">not passed to a junior team</span>. We recommend, then stay to see it done, and we bring the people who will run it into the plan from the start. Where the work needs engineering, we bring in specialist technology partners, so you have one plan and one accountable team.</p>''', lead="Senior judgement, from first call to delivery.", nxt=("Book a call","book-a-call"), alt=True),
+ chapter("05","How we work","how-we-work","How we work",'''<p>Senior judgement from first call to delivery. Every engagement is led by a founder who has advised the head offices and regional hubs of large multinationals, <span class="hl-blue">not passed to a junior team</span>. We recommend, then stay to see it done, and we bring the people who will run it into the plan from the start. Where the work needs engineering, we bring in specialist technology partners, so you have one plan and one accountable team.</p>''', lead="Senior judgement, from first call to delivery.", nxt=("Book a call","book-a-call"), alt=True),
  chapter("06","Book a call","book-a-call","Tell us what you are trying to achieve.",f'''<div class="cta-panel"><p>A short, confidential call is the quickest way to see whether we can help.</p>{book()}</div>''', cls="ch-cta"),
 ])
 page("", "Collabor8 | Senior advice for cross-border growth",
@@ -153,7 +153,7 @@ steps = [
 ai = "".join([
  sec(f'''<span class="eyebrow">AI agents</span>
 <h1>AI agents that work inside your business</h1>
-<p class="lead">We design how AI agents work in complex organisations: their roles, rules and approvals. Specialist engineers build them. <span class="hl-yellow">People stay in charge.</span></p>
+<p class="lead">We design how AI agents work in complex organisations: their roles, rules and approvals. Specialist engineers build them. <span class="hl-blue">People stay in charge.</span></p>
 <p>Many AI pilots impress in a demo and stall in the business. The cause is rarely the technology. It is unclear roles, missing rules and teams who were not asked. We start with how the business actually runs, then design agents to fit it.</p>
 {book()}''', cls="hero"),
  chapter("01","Strategy and technology, together","strategy","Strategy and technology, together",'''<p>Most AI work fails from one side. Some firms build well but do not know the business. Some advisers know the business but cannot build. Collabor8 pairs senior business advice with deep engineering. One side judges the business, the process and the risk. The other builds and runs the technology. <span class="hl-green">You get one team.</span></p>''', nxt=("How we deploy agents","how-we-deploy")),
