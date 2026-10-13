@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "7"  # bump on every publish (cache busting)
+VER = "8"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -74,7 +74,7 @@ def page(slug, title, desc, body, desc_placeholder=False):
  </div>
 </footer>
 <div class="cookie" id="cookie" role="region" aria-label="Cookie consent" hidden>
- <p>{ph("[COOKIE BANNER TEXT TO BE SUPPLIED]")}</p>
+ <p>We use essential cookies to run this site. With your consent, we may also use analytics cookies. See our <a href="{up}cookie-notice/">Cookie notice</a>.</p>
  <div class="row"><button class="btn" type="button" data-consent-action="accepted">Accept</button><button class="btn btn-ghost" type="button" data-consent-action="declined">Decline</button></div>
 </div>
 <script src="{up}assets/site.js?v={VER}" defer></script>
