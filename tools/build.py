@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "6"  # bump on every publish (cache busting)
+VER = "7"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -147,8 +147,8 @@ ai = "".join([
 <p>Most AI work fails from one side. Some firms build well but do not know the business. Some advisers know the business but cannot build. Collabor8 pairs senior business advice with deep engineering. One side judges the business, the process and the risk. The other builds and runs the technology. You get one team.</p>''', alt=True),
  sec(f'''<span class="eyebrow" id="typical-engagement">Typical engagement</span>
 <p>It starts with an informal 30 minute virtual coffee, to talk through what you are trying to achieve and whether we can help. If there is a fit, we hold a working session of two to three hours to map processes and roles, shaped around your business. Then a design phase and a pilot of one or two agents in a real process. Governance is built in from the start. Scope, fees and timing are agreed in writing before work begins.</p>'''),
- sec(f'''<h2>Tell us which process you would hand to an agent first.</h2>
-<p>A short, confidential call will show whether it is a good place to start.</p>
+ sec(f'''<h2 id="agents-cta">Build a team of agents, not a single tool.</h2>
+<p>We start by mapping your business: the systems, tools and subscriptions you rely on, and how each team really works. Automation brings the first quick wins. The bigger gain is agents that take on whole jobs, each with a defined role, its own skills and a knowledge base to draw on. Together they form an organisation chart of agents, used by one person or shared across hundreds. A short, confidential call is the place to start.</p>
 {book()}''', alt=True, cls="cta"),
 ])
 page("ai-agents/", "AI agents | Collabor8",
