@@ -46,3 +46,4 @@
 - 2026-10-13: colour-v6 LIVE (Lee approved): green-led chapters, Grow pillar, 'strategic growth' in hero and meta, Africa item 'major regional players'. https://zesty-daffodil-39a0bd.netlify.app
 - 2026-10-13: team-v7 branch (preview only): new home chapter 02 Our team, chapters renumbered to 6. Draft: https://team-v7--zesty-daffodil-39a0bd.netlify.app
 - 2026-10-13: team-v7: yellow word highlight changed to soft blue #BAE6FD (class hl-blue); draft redeployed.
+- 2026-10-13: team-v7: hl-blue now blue text #1172A3/600, no band; draft redeployed.
