@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "16"  # bump on every publish (cache busting)
+VER = "17"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -113,7 +113,7 @@ home = "".join([
  chapter("01","What we do","what-we-do","What we do",'''<div class="cols">
 <div><h3 class="t-cyan">Deploy</h3><p>AI agents change how work gets done, so they need roles, rules and clear lines of approval. We design that operating model around how your business really runs, then work with specialist engineers to <span class="hl-green">build, test and deploy</span> the agents.</p><p><a href="ai-agents/">Explore AI agents</a></p></div>
 <div><h3 class="t-green">Enter</h3><p>Businesses from outside the region face a long list of decisions. We test the market and your proposition, then set the order: onshore or free zone, licensing, core team and local partners. We manage delivery, so <span class="hl-yellow">the first year is not spent fixing the first month</span>.</p></div>
-<div><h3 class="t-orange">Partner</h3><p>Digital finance businesses grow fastest through networks that already hold the customers. We bring operator agreements and the right fintech partner together, and structure the commercial terms so <span class="hl-green">both sides want to keep the deal</span>.</p></div>
+<div><h3 class="t-orange">Grow</h3><p>Growth rarely comes from going it alone. We find the companies, partners and options that move a business forward, then bring the right people to the table. We test the fit, broker the introduction and structure the terms so <span class="hl-green">both sides want to keep the deal</span>.</p></div>
 </div>
 <div class="subblock">
 <h3>AI agents, designed around your business</h3>
