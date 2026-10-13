@@ -29,3 +29,4 @@
 - 2026-10-13: Added "On this page" jump list below home hero (approved by Lee); redeployed draft preview.
 - 2026-10-13: Lee edits: ™ on wordmark, two CHECK placeholders removed, Book a call = mailto, legal entity line placeholder; draft preview redeployed.
 - 2026-10-13: Footer legal line and registered address from trade licence; draft preview redeployed.
+- 2026-10-13: Registered address removed from footer at Lee's request; draft preview redeployed.

@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "4"  # bump on every publish (cache busting)
+VER = "5"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -64,7 +64,6 @@ def page(slug, title, desc, body, desc_placeholder=False):
   <div>
    <p><strong>Collabor8<sup class="tm">™</sup></strong></p>
    <p>Collabor8<sup class="tm">™</sup> is a trademark and trading name of Lee Purcell for Project Management Services L.L.C, Dubai, UAE. Licence no. 1233040.</p>
-   <p>Office 205, Shamsa Mohammed Ibrahim Al Suwaidi Building, Al Murar, Deira, Dubai, UAE</p>
    <p>Senior advice for cross-border growth.</p>
   </div>
   <div>
