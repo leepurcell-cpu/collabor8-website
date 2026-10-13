@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "5"  # bump on every publish (cache busting)
+VER = "6"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -145,8 +145,8 @@ ai = "".join([
  sec('<span class="eyebrow">How we deploy agents</span><ol class="steps">' + "".join(f'<li><div><h3>{t}</h3><p>{ph(d)}</p></div></li>' for t,d in steps) + '</ol>'),
  sec('''<span class="eyebrow">Strategy and technology, together</span>
 <p>Most AI work fails from one side. Some firms build well but do not know the business. Some advisers know the business but cannot build. Collabor8 pairs senior business advice with deep engineering. One side judges the business, the process and the risk. The other builds and runs the technology. You get one team.</p>''', alt=True),
- sec(f'''<span class="eyebrow">Typical engagement</span>
-<p>{ph("A working session to map processes and roles, usually a day [CHECK: duration]. Then a design phase and a pilot of one or two agents in a real process. Governance is built in from the start. Scope, fees and timing are agreed in writing before work begins.")}</p>'''),
+ sec(f'''<span class="eyebrow" id="typical-engagement">Typical engagement</span>
+<p>It starts with an informal 30 minute virtual coffee, to talk through what you are trying to achieve and whether we can help. If there is a fit, we hold a working session of two to three hours to map processes and roles, shaped around your business. Then a design phase and a pilot of one or two agents in a real process. Governance is built in from the start. Scope, fees and timing are agreed in writing before work begins.</p>'''),
  sec(f'''<h2>Tell us which process you would hand to an agent first.</h2>
 <p>A short, confidential call will show whether it is a good place to start.</p>
 {book()}''', alt=True, cls="cta"),
