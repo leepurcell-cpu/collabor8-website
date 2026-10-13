@@ -4,8 +4,8 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "2"  # bump on every publish (cache busting)
-BOOK = "#booking-link-to-be-supplied"
+VER = "3"  # bump on every publish (cache busting)
+BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
 NAV = [("Services","services/"),("AI agents","ai-agents/"),("Sectors and markets","sectors-and-markets/"),("Insights","insights/"),("About","about/"),("Contact","contact/")]
@@ -14,7 +14,7 @@ def ph(s):
     """Wrap every [ ... ] in a highlighted placeholder mark."""
     return re.sub(r"\[([^\]]+)\]", r'<mark class="ph">[\1]</mark>', s)
 
-def book(label="Book a call", note=True):
+def book(label="Book a call", note=False):
     h = f'<a class="btn" href="{BOOK}">{label}</a>'
     if note: h += '<span class="ph-note"><mark class="ph">[BOOKING LINK TO BE SUPPLIED]</mark></span>'
     return h
@@ -50,7 +50,7 @@ def page(slug, title, desc, body, desc_placeholder=False):
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
  <div class="wrap hdr">
-  <a class="logo" href="{up or './'}">Collabor8</a>
+  <a class="logo" href="{up or './'}" aria-label="Collabor8 home">Collabor8<sup class="tm">™</sup></a>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
   <nav class="nav" id="nav" aria-label="Main"><ul>{nav}</ul></nav>
   <a class="btn" href="{BOOK}">Book a call</a>
@@ -62,7 +62,8 @@ def page(slug, title, desc, body, desc_placeholder=False):
 <footer class="site-footer">
  <div class="wrap fgrid">
   <div>
-   <p><strong>Collabor8 Management Consultancy FZC</strong></p>
+   <p><strong>Collabor8<sup class="tm">™</sup></strong></p>
+   <p>{ph("[LEGAL ENTITY LINE TO CONFIRM]")}</p>
    <p>{ph("[REGISTERED ADDRESS TO BE SUPPLIED]")}</p>
    <p>Senior advice for cross-border growth.</p>
   </div>
@@ -119,8 +120,8 @@ home = "".join([
  sec(f'''<span class="eyebrow">Selected work</span>
 <div class="cols work">
 <article><h3>Entering the Gulf</h3><p>International and large domestic businesses entered the UAE and Gulf with our support. We advised on strategy and regulatory structure, secured the required approvals and managed execution end to end.</p></article>
-<article><h3>Growing across Africa</h3><p>{ph("A leading African fintech [CHECK: client consent to this description] expanded across several markets through partnerships with tier-one mobile operators. We structured the deals and scaled lending products into new territories.")}</p></article>
-<article><h3>Turning a business around</h3><p>{ph("A regional operation of more than 120 people was restructured around clearer segments and a sharper proposition. The plan was built with the team who had to run it. Attrition fell from over 40% to a single departure in a year. [CHECK: figures cleared for publication]")}</p></article>
+<article><h3>Growing across Africa</h3><p>{ph("A leading African fintech expanded across several markets through partnerships with tier-one mobile operators. We structured the deals and scaled lending products into new territories.")}</p></article>
+<article><h3>Turning a business around</h3><p>{ph("A regional operation of more than 120 people was restructured around clearer segments and a sharper proposition. The plan was built with the team who had to run it. Attrition fell from over 40% to a single departure in a year.")}</p></article>
 </div>''', alt=True, id="selected-work"),
  sec(f'''<h2>Tell us what you are trying to achieve.</h2>
 <p>A short, confidential call is the quickest way to see whether we can help.</p>

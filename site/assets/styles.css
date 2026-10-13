@@ -87,3 +87,4 @@ html{scroll-behavior:smooth}
 .jump a{color:var(--accent);text-decoration:none;font-weight:500}
 @media(hover:hover){.jump a:hover{text-decoration:underline}}
 .hero+.jump{margin-top:0}
+.tm{font-size:.5em;font-weight:500;vertical-align:super;line-height:0;margin-left:1px;position:relative;top:-.15em}

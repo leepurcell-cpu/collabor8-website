@@ -19,7 +19,7 @@
 - Every page carries `<meta name="robots" content="noindex, nofollow">`; remove at launch (in `tools/build.py`).
 - `BASE` in `tools/build.py` and the URL in `site/robots.txt` point to the netlify.app URL; change to the real domain at launch (canonical, OG, sitemap).
 - Text in square brackets renders as highlighted placeholders (`.ph`). None may go live.
-- Book a call links point to `#booking-link-to-be-supplied` until the booking link arrives (`BOOK` in build.py).
+- Book a call links are mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call (`BOOK` in build.py).
 - Cookie gate: non-essential scripts must be added as `<script type="text/plain" data-consent="analytics" data-src="...">`; they run only after Accept. Decline keeps them off. Choice stored in localStorage `c8_consent`; `c8Consent.reset()` clears it.
 - Netlify site creation with a custom name returned 422 earlier; auto-named site works.
 
@@ -27,3 +27,4 @@
 - 2026-10-13: Repo set up; holding page on main.
 - 2026-10-13: Netlify site zesty-daffodil-39a0bd created and linked to main (holding page is production). Phase 1 (home, AI agents, nav, footer, 7 stubs) on branch phase1-preview, draft deploy for review.
 - 2026-10-13: Added "On this page" jump list below home hero (approved by Lee); redeployed draft preview.
+- 2026-10-13: Lee edits: ™ on wordmark, two CHECK placeholders removed, Book a call = mailto, legal entity line placeholder; draft preview redeployed.
