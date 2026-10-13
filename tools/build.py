@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "17"  # bump on every publish (cache busting)
+VER = "18"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -108,7 +108,7 @@ def chapter(num, name, anchor, heading, inner, lead="", nxt=None, alt=False, cls
 home = "".join([
  sec(f'''<span class="eyebrow">Senior advice for cross-border growth.</span>
 <h1>Where growth crosses borders, we advise.</h1>
-<p class="lead">A senior advisory firm for large, ambitious businesses. We solve hard problems of growth and change: <span class="hl-yellow">AI agents, GCC entry and the right partnerships</span>.</p>
+<p class="lead">A senior advisory firm for large, ambitious businesses. We solve hard problems of growth and change: <span class="hl-yellow">AI agents, GCC entry and strategic growth</span>.</p>
 {book()}''', cls="hero"),
  chapter("01","What we do","what-we-do","What we do",'''<div class="cols">
 <div><h3 class="t-cyan">Deploy</h3><p>AI agents change how work gets done, so they need roles, rules and clear lines of approval. We design that operating model around how your business really runs, then work with specialist engineers to <span class="hl-green">build, test and deploy</span> the agents.</p><p><a href="ai-agents/">Explore AI agents</a></p></div>
@@ -127,7 +127,7 @@ home = "".join([
 </ol></div>''', lead="Three ways we help large businesses grow across borders.", nxt=("Selected work","selected-work")),
  chapter("02","Selected work","selected-work","Selected work",'''<div class="cols work">
 <article><h3>Entering the Gulf</h3><p>International and large domestic businesses entered the UAE and Gulf with our support. We advised on strategy and regulatory structure, secured the required approvals and managed execution end to end.</p></article>
-<article><h3>Growing across Africa</h3><p>A leading African fintech expanded across several markets through partnerships with tier-one mobile operators. We structured the deals and scaled lending products into new territories.</p></article>
+<article><h3>Growing across Africa</h3><p>A leading African fintech expanded across several markets through partnerships with major regional players. We structured the deals and scaled lending products into new territories.</p></article>
 <article><h3>Turning a business around</h3><p>A regional operation of more than 120 people was restructured around clearer segments and a sharper proposition. The plan was built with the team who had to run it. Attrition fell from <span class="hl-orange">over 40%</span> to <span class="hl-green">a single departure</span> in a year.</p></article>
 </div>''', lead="Decisions like yours, and how they turned out.", nxt=("Who we advise, and where","who-we-advise"), alt=True),
  chapter("03","Who we advise, and where","who-we-advise","Who we advise, and where",'''<div class="two">
@@ -138,7 +138,7 @@ home = "".join([
  chapter("05","Book a call","book-a-call","Tell us what you are trying to achieve.",f'''<div class="cta-panel"><p>A short, confidential call is the quickest way to see whether we can help.</p>{book()}</div>''', cls="ch-cta"),
 ])
 page("", "Collabor8 | Senior advice for cross-border growth",
- "Collabor8 is a senior advisory firm helping large, ambitious businesses with AI agents, GCC market entry and partnerships. Book a call.", home)
+ "Collabor8 is a senior advisory firm helping large, ambitious businesses with AI agents, GCC market entry and strategic growth. Book a call.", home)
 
 steps = [
  ("Map","We study your processes, roles and decision points, and find where agents can take on work safely. We recommend which tasks to hand over first and which to leave with people."),

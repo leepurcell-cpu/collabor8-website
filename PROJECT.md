@@ -43,3 +43,4 @@
 - 2026-10-13: palette-v4 branch (preview only): chapter colours navy/cyan/green/orange/navy, coloured pillar names and key figures. Draft: https://palette-v4--zesty-daffodil-39a0bd.netlify.app
 - 2026-10-13: colour-v6 branch (preview only): green-led, per-chapter light backgrounds, big green/orange numbers, green buttons, highlighted words. Draft: https://colour-v6--zesty-daffodil-39a0bd.netlify.app
 - 2026-10-13: colour-v6: third pillar Partner -> Grow with Lee-approved copy; draft redeployed.
+- 2026-10-13: colour-v6 LIVE (Lee approved): green-led chapters, Grow pillar, 'strategic growth' in hero and meta, Africa item 'major regional players'. https://zesty-daffodil-39a0bd.netlify.app
