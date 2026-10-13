@@ -4,7 +4,7 @@ Copy follows Lee's brief exactly. Text in square brackets is a placeholder and i
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
 BASE = "https://zesty-daffodil-39a0bd.netlify.app"  # change to the live domain at launch
-VER = "10"  # bump on every publish (cache busting)
+VER = "11"  # bump on every publish (cache busting)
 BOOK = "mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call"
 EMAIL = "lee.purcell@collabor8.solutions"
 LI = "https://www.linkedin.com/in/lee-purcell-588b61b"
@@ -19,11 +19,12 @@ def book(label="Book a call", note=False):
     if note: h += '<span class="ph-note"><mark class="ph">[BOOKING LINK TO BE SUPPLIED]</mark></span>'
     return h
 
-def page(slug, title, desc, body, desc_placeholder=False):
+def page(slug, title, desc, body, desc_placeholder=False, noindex=False):
     depth = 0 if slug == "" else slug.count("/")
     up = "../" * depth
     url = f"{BASE}/{slug}"
     nav = "".join(f'<li><a href="{up}{h}"{" aria-current=\"page\"" if h==slug else ""}>{t}</a></li>' for t,h in NAV)
+    robots = '<meta name="robots" content="noindex, nofollow">' if noindex else ''
     html = f'''<!doctype html>
 <html lang="en-GB">
 <head>
@@ -31,7 +32,7 @@ def page(slug, title, desc, body, desc_placeholder=False):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="robots" content="noindex, nofollow">
+{robots}
 <link rel="canonical" href="{url}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Collabor8">
@@ -160,7 +161,7 @@ for t, s in HIDDEN:
     body = sec(f'''<h1>{t}</h1>
 <p>Content coming soon</p>
 <p class="muted">{ph(f"[PAGE TITLE TO CONFIRM: {t} | Collabor8]")}<br>{ph("[META DESCRIPTION TO BE SUPPLIED]")}</p>''', cls="hero stub")
-    page(s, f"{t} | Collabor8", "[META DESCRIPTION TO BE SUPPLIED]", body)
+    page(s, f"{t} | Collabor8", "[META DESCRIPTION TO BE SUPPLIED]", body, noindex=True)
 
 page("contact/", "Contact | Collabor8", "Contact Collabor8. Book a short, confidential call with Lee Purcell.",
      sec(f'''<h1>Contact</h1>

@@ -1,6 +1,6 @@
 # Project card: Collabor8 website
 
-**What it is:** The Collabor8 company website, a senior advisory firm site for chief executives, strategy leaders, founders and investors. Single action: Book a call. **Status: Phase 1 built on branch `phase1-preview`, awaiting Lee's approval. Production (`main`) still serves the holding page.**
+**What it is:** The Collabor8 company website, a senior advisory firm site for chief executives, strategy leaders, founders and investors. Single action: Book a call. **Status: Phase 1 live on main since 2026-10-13 (approved by Lee).**
 
 **Repo:** https://github.com/leepurcell-cpu/collabor8-website (private). `main` = production. `phase1-preview` = Phase 1 build for review.
 
@@ -16,7 +16,7 @@
 
 **Quirks and gotchas:**
 - Brand accent #1482B8 fails WCAG AA with white text (4.27:1) and as link text on #FAFAF7 (4.09:1). Buttons and links use #137AAD (4.76:1 on white, 4.55:1 on #FAFAF7). #1482B8 is kept for decorative rules and step markers only.
-- Every page carries `<meta name="robots" content="noindex, nofollow">`; remove at launch (in `tools/build.py`).
+- Linked pages are indexable. Hidden stubs (Services, Sectors and markets, Insights, About) carry noindex (`noindex=True` in build.py), are unlinked and not in the sitemap.
 - `BASE` in `tools/build.py` and the URL in `site/robots.txt` point to the netlify.app URL; change to the real domain at launch (canonical, OG, sitemap).
 - Text in square brackets renders as highlighted placeholders (`.ph`). None may go live.
 - Book a call links are mailto:lee.purcell@collabor8.solutions?subject=Book%20a%20call (`BOOK` in build.py).
@@ -35,3 +35,4 @@
 - 2026-10-13: Cookie banner text added; draft preview redeployed.
 - 2026-10-13: AI agents steps 3 and 4 updated (Lee-approved), CHECK placeholders removed; draft preview redeployed.
 - 2026-10-13: Nav trimmed to AI agents + Contact; Services, Sectors and markets, Insights, About hidden (noindex, unlinked, not in sitemap); Contact, Privacy, Cookie titles and meta set; draft preview redeployed.
+- 2026-10-13: GO LIVE (Lee approved). noindex removed from linked pages; phase1-preview merged into main. https://zesty-daffodil-39a0bd.netlify.app
