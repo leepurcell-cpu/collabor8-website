@@ -211,3 +211,23 @@ footer{
 .reach .who a{color:var(--accent-txt); font-weight:600}
 .reach .who a:hover{color:var(--head)}
 .reach .who+.who{margin-top:8px}
+
+/* Home */
+.intro{max-width:62ch; margin:0 0 clamp(24px,3.5vw,36px); font-size:18px; line-height:1.6}
+.outcomes{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
+.outcome{display:flex; flex-direction:column; gap:6px; text-decoration:none; color:var(--fg); background:var(--bg); border:1px solid var(--line); border-top:2px solid var(--accent); padding:18px 20px 20px; transition:border-color .15s ease, background .15s ease}
+.outcome .t{font-size:18px; font-weight:800; letter-spacing:-.01em; line-height:1.25; color:var(--head)}
+.outcome .d{font-size:15px; line-height:1.45}
+.outcome:hover{background:color-mix(in srgb, var(--accent) 7%, var(--bg)); border-color:var(--accent)}
+.outcome:hover .t{color:var(--accent-txt)}
+.outcome:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.person.sm{grid-template-columns:minmax(0,200px) minmax(0,1fr); align-items:start}
+.person.sm .bio{font-size:clamp(17px,1.8vw,19px); font-weight:400; color:var(--fg); max-width:60ch}
+.person.sm .bio+.bio{margin-top:14px}
+.textlinks{display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:18px}
+.textlinks a{font-weight:700; font-size:16px; color:var(--accent-txt); text-decoration:none}
+.textlinks a:hover{color:var(--head)}
+.textlinks a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+@media (max-width:900px){.outcomes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.person.sm{grid-template-columns:minmax(0,1fr)} .person.sm .photo{max-width:200px}}
+@media (max-width:520px){.outcomes{grid-template-columns:minmax(0,1fr)}}

@@ -13,6 +13,9 @@
     var open = document.getElementById(btn.getAttribute('aria-controls'));
     if (open) open.scrollIntoView({behavior:'smooth', block:'nearest'});
   }
+  var h = (location.hash || '').slice(1);
+  var target = h && document.getElementById('t-' + h);
+  if (target && target.classList.contains('pick')) select(target, false);
   picks.forEach(function(p, idx){
     p.addEventListener('click', function(){ select(p, false); });
     p.addEventListener('keydown', function(e){
