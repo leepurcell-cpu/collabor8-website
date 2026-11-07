@@ -9,7 +9,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 SRC = ROOT / "tools" / "pages"
 BASE = "https://collabor8.solutions"
-VER = "12"
+VER = "13"
 NAV = [("Home", "/"), ("What we do", "/what-we-do/"), ("Insights", "/insights/"), ("About", "/about/"), ("Contact", "/contact/")]
 LEGAL = ("Collabor8™ is a trading name of Lee Purcell for Project Management Services L.L.C. "
          "Trade Licence No. 1233040.")
