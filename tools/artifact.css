@@ -127,7 +127,7 @@ ol.steps b{color:var(--head); font-weight:700}
 .principle .g{color:var(--green-txt)}
 
 /* Insights */
-.papers{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
+.papers{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px}
 .paper{display:flex; flex-direction:column; border:1px solid var(--line); border-top:3px solid var(--accent); background:var(--bg)}
 .paper .cover{display:block; background:#0c1830; line-height:0}
 .paper .cover img{display:block; width:100%; height:auto}
@@ -141,7 +141,6 @@ ol.steps b{color:var(--head); font-weight:700}
 .paper .discuss a{color:var(--accent-txt); font-weight:600}
 .paper .discuss a:hover{color:var(--head)}
 .paper .read:focus-visible,.paper .cover:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-@media (max-width:980px){.papers{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){.papers{grid-template-columns:minmax(0,1fr)}}
 
 /* About */
