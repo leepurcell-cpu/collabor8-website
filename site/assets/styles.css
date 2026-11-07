@@ -240,3 +240,4 @@ footer{
 .statement .label{margin:0 0 12px; color:#7fd3f5}
 .statement .line{margin:0; max-width:30ch; font-size:clamp(28px,4.4vw,48px); line-height:1.15; font-weight:800; letter-spacing:-.02em; color:#fff; text-wrap:balance}
 .statement .g{color:#2fd08f; white-space:nowrap}
+.statement .honest{margin:clamp(16px,2vw,24px) 0 0; max-width:46ch; font-size:clamp(17px,1.6vw,20px); line-height:1.45; font-weight:500; color:#d6e2f2; text-wrap:balance}
