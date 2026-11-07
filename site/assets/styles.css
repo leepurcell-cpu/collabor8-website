@@ -1,20 +1,20 @@
 
 /* Layout: light pages, left-aligned, generous white space, thin nav, one cyan accent rule. Views switch on the URL hash. What we do: six large selector boxes, the chosen outcome opens in a panel below. */
 :root{
-  --bg:#fbfcfd; --surface:#f3f6f9; --fg:#374151; --head:#0f2446; --muted:#6b7280;
-  --line:#e3e8ef; --accent:#1da1dc; --accent-txt:#1482b8; --btn-bg:#0f2446; --btn-fg:#ffffff; --green:#12a06c; --orange:#ee6f1f;
+  --bg:#fbfcfd; --surface:#f3f6f9; --fg:#374151; --head:#0f2446; --muted:#4b5563;
+  --line:#e3e8ef; --accent:#1da1dc; --accent-txt:#0f6f9c; --btn-bg:#0f2446; --btn-fg:#ffffff; --green:#12a06c; --green-txt:#0b7a52; --orange:#ee6f1f;
   --font-ui:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#0e1522; --surface:#152033; --fg:#c9d5e6; --head:#f2f6fb; --muted:#8a9bb5;
-    --line:#223149; --accent:#27b3ea; --accent-txt:#27b3ea; --btn-bg:#27b3ea; --btn-fg:#0c1a33; --green:#2fd08f; --orange:#ff8a3d;
+    --line:#223149; --accent:#27b3ea; --accent-txt:#27b3ea; --btn-bg:#27b3ea; --btn-fg:#0c1a33; --green:#2fd08f; --green-txt:#2fd08f; --orange:#ff8a3d;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#0e1522; --surface:#152033; --fg:#c9d5e6; --head:#f2f6fb; --muted:#8a9bb5;
-  --line:#223149; --accent:#27b3ea; --accent-txt:#27b3ea; --btn-bg:#27b3ea; --btn-fg:#0c1a33; --green:#2fd08f; --orange:#ff8a3d;
+  --line:#223149; --accent:#27b3ea; --accent-txt:#27b3ea; --btn-bg:#27b3ea; --btn-fg:#0c1a33; --green:#2fd08f; --green-txt:#2fd08f; --orange:#ff8a3d;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -23,7 +23,7 @@ html{scroll-behavior:smooth}
 body{
   margin:0; color:var(--fg);
   background:radial-gradient(60vw 40vw at 88% 6%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%), radial-gradient(40vw 30vw at 72% 88%, color-mix(in srgb, var(--orange) 9%, transparent), transparent 70%), var(--bg);
-  font-family:var(--font-ui); font-size:17px; line-height:1.6;
+  font-family:var(--font-ui); font-size:18px; line-height:1.6;
   padding-block:0;
   padding-left:max(16px, env(safe-area-inset-left, 0px));
   padding-right:max(16px, env(safe-area-inset-right, 0px));
@@ -55,7 +55,9 @@ h1{
   color:var(--head); margin:0 0 24px; max-width:14ch; text-wrap:balance;
 }
 h1.page{font-size:clamp(32px,5.4vw,58px); line-height:1.08; max-width:20ch}
-h1 .g{color:var(--green)}
+h1 .g,h2 .g{color:var(--green)}
+.g{color:var(--green-txt)}
+h1 .g,h2 .g{color:var(--green)}
 h1 .o{color:var(--orange)}
 .rule{width:56px; height:3px; background:var(--accent); margin:0 0 28px}
 .sub{font-size:clamp(20px,2.4vw,26px); line-height:1.4; font-weight:500; color:var(--head); max-width:38ch; margin:0 0 clamp(36px,5vw,56px); text-wrap:balance}
@@ -68,7 +70,7 @@ h1 .o{color:var(--orange)}
 .cta-row{margin-top:clamp(36px,5vw,56px)}
 .cta{
   display:inline-block; background:var(--btn-bg); color:var(--btn-fg); text-decoration:none;
-  font-weight:600; font-size:15px; letter-spacing:.02em; padding:15px 28px; border-radius:2px;
+  font-weight:600; font-size:16px; letter-spacing:.02em; padding:15px 28px; border-radius:2px;
   transition:opacity .15s ease;
 }
 .cta:hover{opacity:.88}
@@ -86,10 +88,10 @@ h1 .o{color:var(--orange)}
   background:linear-gradient(var(--accent),var(--accent)) center/100% 2px no-repeat, linear-gradient(var(--accent),var(--accent)) center/2px 100% no-repeat;
 }
 .pick[aria-selected="true"]::after{background:linear-gradient(var(--accent),var(--accent)) center/100% 2px no-repeat}
-.nudge{font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-txt); margin:0 0 14px}
+.nudge{font-size:14px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-txt); margin:0 0 14px}
 .sub.tight{margin-bottom:clamp(24px,3.5vw,36px)}
 .pick .t{font-size:clamp(21px,2.4vw,26px); font-weight:800; letter-spacing:-.02em; line-height:1.15; color:var(--head)}
-.pick .d{font-size:15px; line-height:1.45}
+.pick .d{font-size:16px; line-height:1.45}
 .pick:hover{border-top-color:var(--accent)}
 .pick[aria-selected="true"]{
   border-color:var(--accent); border-top-color:var(--accent);
@@ -109,20 +111,20 @@ h1 .o{color:var(--orange)}
 .panel .g{color:var(--green)}
 .panel .o{color:var(--orange)}
 .rw{background:var(--surface); padding:10px 14px; font-size:14px; line-height:1.5; border-left:2px solid var(--accent)}
-.rw b{display:block; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-txt); margin-bottom:2px}
+.rw b{display:block; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-txt); margin-bottom:2px}
 .o-body .lead{font-size:20px; line-height:1.45; font-weight:500; color:var(--head); margin:0 0 24px; max-width:46ch}
 .o-body p.sit{margin:0 0 26px; max-width:52ch}
 ol.steps{list-style:none; counter-reset:s; margin:0; padding:0; display:flex; flex-direction:column; gap:16px}
 ol.steps li{counter-increment:s; position:relative; padding-left:44px; max-width:52ch}
 ol.steps li:before{
   content:counter(s); position:absolute; left:0; top:2px; width:28px; height:28px; border-radius:50%;
-  background:var(--accent); color:#fff; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center;
+  background:var(--btn-bg); color:var(--btn-fg); font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
 }
 ol.steps b{color:var(--head); font-weight:700}
 .principle{display:flex; flex-wrap:wrap; align-items:center; gap:10px 28px; margin-top:clamp(28px,4vw,44px); padding:18px 24px; border:1px solid var(--line); border-left:4px solid var(--accent); background:color-mix(in srgb, var(--accent) 8%, var(--bg))}
 .principle .label{margin:0; min-width:110px}
 .principle p{margin:0; flex:1 1 320px; color:var(--head); font-weight:600}
-.principle .g{color:var(--green)}
+.principle .g{color:var(--green-txt)}
 
 /* Insights */
 .papers{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
@@ -130,10 +132,10 @@ ol.steps b{color:var(--head); font-weight:700}
 .paper .cover{display:block; background:#0c1830; line-height:0}
 .paper .cover img{display:block; width:100%; height:auto}
 .paper .pbody{display:flex; flex-direction:column; gap:10px; flex:1; padding:20px 22px 24px}
-.paper .tag{margin:0; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-txt)}
+.paper .tag{margin:0; font-size:14px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-txt)}
 .paper h3{margin:0; font-size:clamp(20px,2.1vw,23px); line-height:1.2; letter-spacing:-.02em; font-weight:800; color:var(--head)}
-.paper .hook{margin:0; font-size:15px; line-height:1.5}
-.paper .read{margin-top:auto; padding-top:8px; font-size:15px; font-weight:700; color:var(--accent-txt); text-decoration:none}
+.paper .hook{margin:0; font-size:16px; line-height:1.5}
+.paper .read{margin-top:auto; padding-top:8px; font-size:16px; font-weight:700; color:var(--accent-txt); text-decoration:none}
 .paper .read:hover{color:var(--head)}
 .paper .discuss{margin:0; font-size:14px; color:var(--muted)}
 .paper .discuss a{color:var(--accent-txt); font-weight:600}
@@ -155,12 +157,12 @@ ol.steps b{color:var(--head); font-weight:700}
 .lede .g{color:var(--green)}
 .tiles{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; margin:0 0 18px}
 .tile-card{border:1px solid var(--line); border-top:2px solid var(--accent); padding:20px 20px 22px; background:var(--bg)}
-.tile-card .t{display:block; font-size:17px; font-weight:800; letter-spacing:-.01em; line-height:1.25; color:var(--head); margin-bottom:8px}
-.tile-card .d{display:block; font-size:15px; line-height:1.5}
-.note{margin:0; max-width:64ch; color:var(--muted); font-size:15px}
+.tile-card .t{display:block; font-size:18px; font-weight:800; letter-spacing:-.01em; line-height:1.25; color:var(--head); margin-bottom:8px}
+.tile-card .d{display:block; font-size:16px; line-height:1.5}
+.note{margin:0; max-width:64ch; color:var(--muted); font-size:16px}
 ol.how{list-style:none; counter-reset:h; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,40px)}
 ol.how li{counter-increment:h; position:relative; padding-left:44px}
-ol.how li:before{content:counter(h); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center}
+ol.how li:before{content:counter(h); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--btn-bg); color:var(--btn-fg); font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
 ol.how b{display:block; color:var(--head); font-weight:700; margin-bottom:4px}
 .terms{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
 .term{border:1px solid var(--line); border-top:3px solid var(--accent); padding:clamp(22px,3vw,32px); background:color-mix(in srgb, var(--accent) 4%, var(--bg))}
@@ -184,14 +186,14 @@ ol.how b{display:block; color:var(--head); font-weight:700; margin-bottom:4px}
 .reach a.mail{display:inline-block; font-size:clamp(15px,4.2vw,36px); font-weight:800; letter-spacing:-.02em; line-height:1.2; color:var(--accent-txt); text-decoration:none; border-bottom:2px solid var(--accent); overflow-wrap:anywhere}
 .reach a.mail:hover{color:var(--head)}
 .reach a.mail:focus-visible{outline:2px solid var(--accent); outline-offset:4px}
-.reach .who{margin:20px 0 0; font-size:15px; color:var(--muted)}
+.reach .who{margin:20px 0 0; font-size:16px; color:var(--muted)}
 .reach .who b{display:block; font-size:16px; color:var(--head); font-weight:700}
 
 footer{
   display:flex; justify-content:space-between; gap:12px 32px; flex-wrap:wrap;
   padding:20px 0 28px; border-top:1px solid var(--line); font-size:13px; color:var(--muted);
 }
-.legal{flex:0 0 100%; margin:4px 0 0; font-size:11px; line-height:1.5; color:var(--muted)}
+.legal{flex:0 0 100%; margin:4px 0 0; font-size:12px; line-height:1.5; color:var(--muted)}
 @media (max-width:900px){
   .picks{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -219,12 +221,12 @@ footer{
 .outcomes{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
 .outcome{display:flex; flex-direction:column; gap:6px; text-decoration:none; color:var(--fg); background:var(--bg); border:1px solid var(--line); border-top:2px solid var(--accent); padding:18px 20px 20px; transition:border-color .15s ease, background .15s ease}
 .outcome .t{font-size:18px; font-weight:800; letter-spacing:-.01em; line-height:1.25; color:var(--head)}
-.outcome .d{font-size:15px; line-height:1.45}
+.outcome .d{font-size:16px; line-height:1.45}
 .outcome:hover{background:color-mix(in srgb, var(--accent) 7%, var(--bg)); border-color:var(--accent)}
 .outcome:hover .t{color:var(--accent-txt)}
 .outcome:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .person.sm{grid-template-columns:minmax(0,200px) minmax(0,1fr); align-items:start}
-.person.sm .bio{font-size:clamp(17px,1.8vw,19px); font-weight:400; color:var(--fg); max-width:60ch}
+.person.sm .bio{font-size:clamp(18px,2vw,21px); font-weight:500; color:var(--head); max-width:52ch}
 .person.sm .bio+.bio{margin-top:14px}
 .textlinks{display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:18px}
 .textlinks a{font-weight:700; font-size:16px; color:var(--accent-txt); text-decoration:none}
