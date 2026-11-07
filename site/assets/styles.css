@@ -235,3 +235,8 @@ footer{
 .motto{font-size:clamp(20px,2.4vw,26px); line-height:1.4; font-weight:700; color:var(--head); max-width:42ch; margin:clamp(36px,5vw,56px) 0 0; text-wrap:balance}
 .motto + .cta-row{margin-top:clamp(20px,3vw,28px)}
 .motto .g{color:var(--green)}
+
+.statement{margin-top:clamp(40px,6vw,72px); padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px); background:#0f2446; border:1px solid var(--line); border-left:4px solid var(--accent); color:#fff}
+.statement .label{margin:0 0 12px; color:#7fd3f5}
+.statement .line{margin:0; max-width:30ch; font-size:clamp(28px,4.4vw,48px); line-height:1.15; font-weight:800; letter-spacing:-.02em; color:#fff; text-wrap:balance}
+.statement .g{color:#2fd08f; white-space:nowrap}
