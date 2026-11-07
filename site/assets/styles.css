@@ -164,7 +164,11 @@ ol.how{list-style:none; counter-reset:h; margin:0; padding:0; display:grid; grid
 ol.how li{counter-increment:h; position:relative; padding-left:44px}
 ol.how li:before{content:counter(h); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--btn-bg); color:var(--btn-fg); font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
 ol.how b{display:block; color:var(--head); font-weight:700; margin-bottom:4px}
-.terms{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
+.terms{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
+@media (max-width:960px){.terms{grid-template-columns:minmax(0,1fr)}}
+.term{display:flex; flex-direction:column}
+.term .rw{margin-top:auto}
+.flow{margin:0 0 26px; max-width:60ch; font-size:18px; line-height:1.5; color:var(--fg)}
 .term{border:1px solid var(--line); border-top:3px solid var(--accent); padding:clamp(22px,3vw,32px); background:color-mix(in srgb, var(--accent) 4%, var(--bg))}
 .term h3{font-size:clamp(20px,2.2vw,24px); line-height:1.2; letter-spacing:-.02em; font-weight:800; color:var(--head); margin:0 0 10px}
 .term p{margin:0 0 18px; max-width:46ch}
