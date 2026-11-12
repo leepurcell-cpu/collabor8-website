@@ -16,7 +16,7 @@ PAGE_NET = (ELEV / "inner-converge.svg").read_text().strip()
 RULE_DUO = '<div class="rule duo" aria-hidden="true"></div>'
 HV_MINI = (ELEV / "inner-converge-mobile.svg").read_text().strip()
 BASE = "https://collabor8.solutions"
-VER = "29"
+VER = "30"
 # Google Calendar booking page for the Contact page glass button. Empty = preview placeholder
 # "#booking-link" (the build warns; do not publish until Lee's real link is set).
 BOOKING_URL = "https://calendar.app.google/U6bnp1fEdZmBcpwR7"  # Lee's 30 min 'Intro Call Collabor8' appointment schedule
