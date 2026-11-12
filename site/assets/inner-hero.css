@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Inner page hero v2: Convergence, same composition as Home (Figma Bro).
+   The Home art (800 x 700) compressed to 800 x 350: same right-hand placement, same fan x positions,
+   same 6 + 6 lines, widths, opacities and colours (Home keeps #ee6f1f / #12a06c in dark too).
+   REPLACES main.inner > .page-net.cv-corner and the v1 band (.cv-inner 1440x360 + .cv-inner-m).
+   Load LAST, after sitewide.css. Inline SVG + CSS only. No wording changes.
+   ========================================================================== */
+main.inner{position:relative; isolation:isolate}     /* own layer, so z-index:-1 stays inside main, behind all text */
+
+/* Desktop: same placement rules as .hero-art on Home, but top-aligned to main so the meeting point
+   (half-way down the art) lands level with the headline's middle or just below it. */
+main.inner > .cv-inner{position:absolute; z-index:-1; top:clamp(0px, calc(86.4px - 6vw), 24px);  /* 0 at 1440+, ~20px at 1100: keeps the meeting point level with the headline */
+   right:calc(50% - 50vw); width:min(56vw,800px); height:auto; display:block; pointer-events:none;
+  /* Bottom fade starts a little earlier than Home's, so the green tails are gone before the first content row
+     (About's photo and paragraph start 247px below the top of main at 1440). 60/76% (was 66/82%): the green tails touched the top of the 2nd About paragraph line at 1440-1920. */
+  -webkit-mask-image:linear-gradient(to bottom, #000 0, #000 60%, transparent 76%);
+          mask-image:linear-gradient(to bottom, #000 0, #000 60%, transparent 76%)}
+
+/* One-off draw-in, as Home, but no 'breathe' loop so inner pages stay calm. */
+.cv-inner .ln{stroke-dasharray:1; stroke-dashoffset:1; animation:cvi-draw 2s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--k) * 70ms + .15s)}
+@keyframes cvi-draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){ .cv-inner .ln{animation:none; stroke-dashoffset:0} }
+
+/* Mid widths: as Home (right:0, width min(44vw,460px)). */
+@media (max-width:1072px){ main.inner > .cv-inner{right:0; width:min(44vw,460px); top:clamp(48px,6vw,64px)} }   /* 54px at 901, 64px at 1072: meeting point level with the headline's middle */
+
+/* <=900px: as Home. Big art hidden; the small Convergence mark (.hv-mini, already styled in option-b.css)
+   replaces the orange/green rule under the headline. */
+@media (max-width:900px){
+  main.inner > .cv-inner{display:none}
+  main.inner > .rule.duo{display:none}
+}
+main.inner > .hv-mini{position:relative; z-index:1}
+

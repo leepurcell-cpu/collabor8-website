@@ -183,7 +183,7 @@ ol.steps{gap:var(--s2)}
 .glass-btn:focus-visible{outline:2px solid var(--gb-ring); outline-offset:5px}
 .glass-btn:active{transform:translateY(0)}
 @media (max-width:640px){
-  .book-row{padding:12px 12px 16px}
+  .book-row{padding:12px 0 16px}  /* flush with the text column (was 12px side insets); halo spill stays inside the 16px gutter */
   .glass-btn{display:flex; width:100%; min-height:56px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -236,3 +236,30 @@ ol.steps{gap:var(--s2)}
   .person.sm .photo img{max-width:200px}
   .photo figcaption{max-width:none; width:100%; white-space:nowrap}
 }
+/* What we do: all six detail panels share one grid cell, so the area is always as tall as the tallest panel
+   and switching boxes never moves the page. Inactive panels keep the [hidden] attribute (the JS toggles it)
+   but stay in layout with visibility:hidden, which also removes them from the accessibility tree and tab order. */
+.panels{display:grid; grid-template-columns:minmax(0,1fr)}
+.panels > .panel{grid-area:1 / 1}
+.panels > .panel[hidden]{display:grid !important; visibility:hidden} /* beats the global [hidden]{display:none !important} */
+/* Home: the two lead paragraphs under the hero (.sub "We get to the crux…" and .based "Based across…") read as a pair.
+   Same type (already the lead step), same measure and wrapping, and the same 64px orange/green rule as the hero's .rule.duo,
+   which, like that rule, is hidden at <=900px. */
+main:not(.inner) > .sub, main:not(.inner) > .based{max-width:38ch; text-wrap:pretty}
+main:not(.inner) > .based::before{width:64px; margin:0 0 var(--s3)}
+@media (max-width:900px){ main:not(.inner) > .based::before{display:none} }
+/* Contact: primary (Book, glass) + secondary (Email us, quiet glass) side by side; same 56px height, shared baseline.
+   Phones: stacked, both full width, 16px apart. */
+.book-row{display:flex; flex-wrap:wrap; align-items:center; gap:var(--s2) var(--s3)}
+.book-row .glass-btn--quiet{min-height:56px; font-size:var(--fs-body)}
+@media (max-width:640px){
+  .book-row{flex-direction:column; align-items:stretch}
+  .book-row .glass-btn.glass-btn--quiet{display:flex; width:100%; min-height:56px}
+}
+/* Consistency audit (VER 28): same role = same style, one-off spacing onto the 8px scale. */
+.sub{max-width:38ch; text-wrap:balance}  /* inner page subhead under h1: was 34ch, now 38ch like Home (Home keeps pretty wrapping so it pairs with "Based across…") */
+.statement{margin-top:var(--sect-gap)}                           /* Home navy band: was 72px / 40px, now the section gap like every .sect (80 / 48) */
+.more{margin-top:var(--s6); font-size:var(--fs-small); line-height:var(--lh-small)}  /* paper pages "More papers" link: was 28px gap, fixed 16px */
+.more a{font-weight:700}                                         /* matches the other arrow links (.textlinks a, .paper .read) */
+.book-row{margin-bottom:var(--s6)}                              /* Contact buttons to email box: was clamp(40px,5vw,56px) */
+@media (max-width:640px){ .book-row{margin-bottom:var(--s5)} }

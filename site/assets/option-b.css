@@ -102,14 +102,3 @@ html{overflow-x:hidden}
 @media (max-width:900px){ .statement .cv-band{display:none} }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .statement .cv-band{opacity:.85} }
 :root[data-theme="dark"] .statement .cv-band{opacity:.85}
-
-/* Inner page headers: quiet Convergence corner. Replaces main.inner > .page-net rules in option-b.css. Static. */
-main.inner > .page-net{position:absolute; right:calc(50% - 50vw); top:clamp(16px,2.5vw,36px); width:min(25vw,320px); height:auto; opacity:.55; pointer-events:none; z-index:0}
-main.inner > .eyebrow, main.inner > h1, main.inner > .rule, main.inner > .sub{position:relative; z-index:1}
-@media (max-width:1072px){ main.inner > .page-net{right:0; width:min(32vw,300px); opacity:.45} }
-@media (max-width:640px){ main.inner > .page-net{display:none} }
-/* Dark mode: brighter tints, a touch less opacity */
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) main.inner > .page-net path:nth-child(-n+3){stroke:#ff8a3d} :root:not([data-theme="light"]) main.inner > .page-net path:nth-child(n+4){stroke:#2fd08f} :root:not([data-theme="light"]) main.inner > .page-net{opacity:.4} }
-:root[data-theme="dark"] main.inner > .page-net path:nth-child(-n+3){stroke:#ff8a3d}
-:root[data-theme="dark"] main.inner > .page-net path:nth-child(n+4){stroke:#2fd08f}
-:root[data-theme="dark"] main.inner > .page-net{opacity:.4}
