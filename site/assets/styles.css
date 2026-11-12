@@ -248,3 +248,10 @@ footer{
 .statement .line{margin:0; max-width:30ch; font-size:clamp(28px,4.4vw,48px); line-height:1.15; font-weight:800; letter-spacing:-.02em; color:#fff; text-wrap:balance}
 .statement .g{color:#2fd08f; white-space:nowrap}
 .statement .honest{margin:clamp(16px,2vw,24px) 0 0; max-width:46ch; font-size:clamp(17px,1.6vw,20px); line-height:1.45; font-weight:500; color:#d6e2f2; text-wrap:balance}
+/* paper share pages */
+.papers.single{grid-template-columns:minmax(0,1fr); max-width:680px}
+.paper .ptitle{margin:0; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.02em; font-weight:800; color:var(--head)}
+.paper .pbody .cta{align-self:flex-start; margin-top:8px}
+.more{margin-top:28px; font-size:16px}
+.more a{color:var(--accent-txt); font-weight:600; text-decoration:none}
+.eyebrow a{color:inherit; text-decoration:none}
