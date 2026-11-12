@@ -21,7 +21,7 @@ PAGES = [
     ("what-we-do/", "what-we-do", "What we do | Collabor8™",
      "Six outcomes we help organisations reach: new markets, partnerships and deals, scale and organisation, leadership, technology and AI, and growth.", "inner", "what-we-do.js"),
     ("insights/", "insights", "Insights | Collabor8™",
-     "Short papers from Collabor8™ on problems organisations face again and again.", "inner", None),
+     "Collabor8™ papers: Our view on the shifts reshaping markets, partnerships and technology.", "inner", None),
     ("about/", "about", "About | Collabor8™",
      "A senior team built around your problem: former corporate consultants, sector specialists and senior entrepreneurs. Paid by fees or a shared outcome.", "inner", None),
     ("contact/", "contact", "Contact | Collabor8™",
