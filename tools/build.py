@@ -2,16 +2,23 @@
 """Generates the static pages in site/. Run: python3 tools/build.py
 Page copy lives in tools/pages/<name>.html (the inside of <main>). Shared header, footer and
 head tags are defined here. Styles: tools/artifact.css is the source for site/assets/styles.css
-(copied on build). Bump VER on every publish so browsers fetch fresh CSS and JS."""
+(copied on build). Option B: tools/elevate/ (option-b.css, sitewide.css, elevate.js, motifs) is copied to site/assets/. Bump VER on every publish so browsers fetch fresh CSS and JS."""
 import pathlib, shutil
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 SRC = ROOT / "tools" / "pages"
+ELEV = ROOT / "tools" / "elevate"
+SPRITE = (ELEV / "sprite.svg").read_text().strip() + "\n"
+PAGE_NET = (ELEV / "page-net.svg").read_text().strip()
 BASE = "https://collabor8.solutions"
-VER = "22"
-# Google Calendar booking page for the Contact page button. Empty = button box is left out.
+VER = "26"
+# Google Calendar booking page for the Contact page glass button. Empty = preview placeholder
+# "#booking-link" (the build warns; do not publish until Lee's real link is set).
 BOOKING_URL = ""
+# C8_PREVIEW=1 python3 tools/build.py shows the Book button with the placeholder link, for local review only.
+import os
+PREVIEW = os.environ.get("C8_PREVIEW") == "1"
 NAV = [("Home", "/"), ("What we do", "/what-we-do/"), ("Insights", "/insights/"), ("About", "/about/"), ("Contact", "/contact/")]
 LEGAL = ("Collabor8™ is a trading name of Lee Purcell for Project Management Services L.L.C. "
          "Trade Licence No. 1233040.")
@@ -39,14 +46,21 @@ def page(slug, frag, title, desc, main_class, script, noindex=False, image="site
     if body is None:
         body = (SRC / f"{frag}.html").read_text() if frag else ""
         if "{{BOOKING_URL}}" in body:
-            import re as _r
             if BOOKING_URL:
-                body = body.replace("{{BOOKING_URL}}", BOOKING_URL)
+                body = body.replace("{{BOOKING_URL}}", BOOKING_URL).replace("{{BOOKING_TARGET}}", ' target="_blank"')
+            elif PREVIEW:
+                print("PREVIEW build: Contact Book button uses placeholder #booking-link. Do not publish this build.")
+                body = body.replace("{{BOOKING_URL}}", "#booking-link").replace("{{BOOKING_TARGET}}", "")
             else:
-                body = _r.sub(r'\s*<div class="reach book">.*?</div>', "", body, flags=_r.S)
+                # No real link yet: leave the Book button out so a dead link can never go live.
+                import re as _r
+                body = _r.sub(r'\s*<div class="book-row">.*?</div>', "", body, count=1, flags=_r.S)
+    if main_class == "inner":
+        body = PAGE_NET + "\n" + body
     cls = f' class="{main_class}"' if main_class else ""
     robots = '<meta name="robots" content="noindex, nofollow">\n' if noindex else ""
     extra = f'<script src="/assets/{script}?v={VER}" defer></script>\n' if script else ""
+    extra += f'<script src="/assets/elevate.js?v={VER}" defer></script>\n'
     html = f'''<!doctype html>
 <html lang="en-GB">
 <head>
@@ -72,9 +86,11 @@ def page(slug, frag, title, desc, main_class, script, noindex=False, image="site
 <link rel="preload" href="/fonts/files/inter-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/inter.css?v={VER}">
 <link rel="stylesheet" href="/assets/styles.css?v={VER}">
+<link rel="stylesheet" href="/assets/option-b.css?v={VER}">
+<link rel="stylesheet" href="/assets/sitewide.css?v={VER}">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+{SPRITE}<a class="skip" href="#main">Skip to content</a>
 <div class="wrap">
   <header class="top">
     <a class="brand" href="/" aria-label="Collabor8 home"><span>Collabor8<sup>™</sup></span></a>
@@ -145,28 +161,40 @@ for art in _re.findall(r'<article class="paper">(.*?)</article>', (SRC / "insigh
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/fonts/inter.css?v={VER}">
 <link rel="stylesheet" href="/assets/styles.css?v={VER}">
+<link rel="stylesheet" href="/assets/option-b.css?v={VER}">
+<link rel="stylesheet" href="/assets/sitewide.css?v={VER}">
 </head>
 <body>
-<div class="wrap">
+{SPRITE}<div class="wrap">
   <header class="top">
     <a class="brand" href="/" aria-label="Collabor8 home"><span>Collabor8<sup>™</sup></span></a>
     <nav aria-label="Main"><ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for t, h in NAV)}</ul></nav>
   </header>
   <main id="main" class="inner">
+    {PAGE_NET}
     <p class="eyebrow">404</p>
     <h1 class="page">That page <span class="g">is not here.</span></h1>
-    <div class="rule" aria-hidden="true"></div>
+    <div class="rule duo" aria-hidden="true"></div>
     <p class="sub tight">It may have moved. Start from the home page.</p>
-    <div class="cta-row"><a class="cta" href="/">Go to the home page</a></div>
+    <div class="cta-row cta-row--glass"><a class="glass-btn glass-btn--quiet" href="/">Go to the home page<svg class="gb-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></svg></a></div>
   </main>
   <footer><p class="legal">{LEGAL}</p></footer>
 </div>
+<script src="/assets/elevate.js?v={VER}" defer></script>
 </body>
 </html>
 ''')
 
-# styles
+# styles and Option B assets
 shutil.copyfile(ROOT / "tools" / "artifact.css", SITE / "assets" / "styles.css")
+shutil.copyfile(ELEV / "option-b.css", SITE / "assets" / "option-b.css")
+shutil.copyfile(ELEV / "sitewide.css", SITE / "assets" / "sitewide.css")  # site-wide type/spacing/glass pass, loaded last
+shutil.copyfile(ELEV / "elevate.js", SITE / "assets" / "elevate.js")
+# Old hero-network SVGs are no longer shipped. Convergence hero is inlined in home.html.
+icons = SITE / "assets" / "icons"
+if icons.exists():
+    shutil.rmtree(icons)
+shutil.copytree(ELEV / "icons", icons)
 
 # robots and sitemap
 (SITE / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")

@@ -1,0 +1,5 @@
+/* Navy "How we work" band: quiet Convergence. Replaces .statement .band-net rules in option-b.css. Static. */
+.statement .cv-band{position:absolute; z-index:-1; right:0; top:31%; width:min(70%,800px); height:auto; pointer-events:none; opacity:1}
+@media (max-width:900px){ .statement .cv-band{display:none} }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .statement .cv-band{opacity:.85} }
+:root[data-theme="dark"] .statement .cv-band{opacity:.85}

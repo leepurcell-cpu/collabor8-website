@@ -1,0 +1,238 @@
+/* ==========================================================================
+   Collabor8 site-wide pass (on SD preview VER 25). Load LAST, after option-b.css.
+   1 Type scale  2 Spacing  3 Home: R2 pull-quote + R3 rhythm (no R1)  4 Inner pages  5 Glass booking button
+   No wording changes. Coloured card/box top bars (blue, green, orange) and light-blue card icons kept.
+   ========================================================================== */
+
+/* 1. TYPE SCALE: 6 roles + display. Fluid 390px -> 1440px. */
+:root{
+  --fs-display:clamp(44px, calc(44px + 32 * (100vw - 390px) / 1050), 76px);  --lh-display:1.02; --ls-display:-.03em;
+  --fs-h1:clamp(34px, calc(34px + 22 * (100vw - 390px) / 1050), 56px);       --lh-h1:1.06;      --ls-h1:-.03em;
+  --fs-h2:clamp(28px, calc(28px + 12 * (100vw - 390px) / 1050), 40px);       --lh-h2:1.1;       --ls-h2:-.025em;
+  --fs-h3:clamp(20px, calc(20px + 2 * (100vw - 390px) / 1050), 22px);       --lh-h3:1.25;      --ls-h3:-.015em;   /* also the lead / pull-quote step at weight 500, lh 1.4 */
+  --fs-body:clamp(17px, calc(17px + 1 * (100vw - 390px) / 1050), 18px);     --lh-body:1.6;
+  --fs-small:clamp(15px, calc(15px + 1 * (100vw - 390px) / 1050), 16px);    --lh-small:1.5;
+  --fs-eyebrow:clamp(13px, calc(13px + 2 * (100vw - 390px) / 1050), 15px);  --lh-eyebrow:1.3;  --ls-eyebrow:.14em;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s7:56px; --s8:64px; --s10:80px;
+  --sect-gap:clamp(48px, calc(48px + 32 * (100vw - 390px) / 1050), 80px);
+}
+body{font-size:var(--fs-body); line-height:var(--lh-body)}
+/* display: home hero only */
+main:not(.inner) > h1{font-size:var(--fs-display); line-height:var(--lh-display); letter-spacing:var(--ls-display)}
+/* h1: inner page titles */
+h1.page{font-size:var(--fs-h1); line-height:var(--lh-h1); letter-spacing:var(--ls-h1)}
+/* h2: section titles, band statement, panel headline, proof numerals */
+.sect h2, .statement .line, .o-head h2, .proof dt{font-size:var(--fs-h2); line-height:var(--lh-h2); letter-spacing:var(--ls-h2); font-weight:800}
+/* h3: card and box titles */
+.fit-col h2, .outcome .t, .tile-card .t, .term h3, .paper h3, .pick .t, .reach a.mail, .contact-opts .reach a.mail, ol.how b, .proof dd b{font-size:var(--fs-h3); line-height:var(--lh-h3); letter-spacing:var(--ls-h3)}
+.fit-col h2, .outcome .t, .tile-card .t, .term h3, .paper h3, .pick .t, .reach a.mail{font-weight:800}
+ol.how b{font-weight:700}
+.proof dd b{font-size:var(--fs-body); line-height:1.35; letter-spacing:0; font-weight:700}
+/* lead (h3 step, weight 500): subheads, ledes, bios, pull-quotes, band lines, panel lead */
+.sub, .lede, .bio, .person.sm .bio, .statement .honest, .o-body .lead, main > .based, .principle p:not(.label){font-size:var(--fs-h3); line-height:1.4; letter-spacing:-.005em; font-weight:500}
+/* body */
+.intro, .flow, .fit-col li, .term p:not(.label), .o-body p.sit, ol.steps li, ol.how li, .copy p{font-size:var(--fs-body); line-height:var(--lh-body)}
+/* small: descriptions, meta, nav, buttons */
+.outcome .d, .tile-card .d, .pick .d, .paper .hook, .note, .reach .who, .rw, .photo figcaption, .paper .discuss, .proof dd, .textlinks a, .paper .read, .cta, nav a{font-size:var(--fs-small); line-height:var(--lh-small)}
+.photo figcaption b, .reach .who b{font-size:var(--fs-small)}
+/* eyebrow: page eyebrow, labels, tags, nudges, card numbers, 'Right when' */
+.eyebrow, .label, .statement .label, .paper .tag, .nudge, .rw b, .outcome .num{font-size:var(--fs-eyebrow); line-height:var(--lh-eyebrow); letter-spacing:var(--ls-eyebrow); text-transform:uppercase; font-weight:700}
+.outcome .num{font-weight:600}
+.legal{font-size:var(--fs-eyebrow); line-height:1.5}
+
+/* 2. SPACING (8px scale) and measure (about 60ch) */
+.sect{margin-top:var(--sect-gap)}
+.sect h2{margin:0 0 var(--s1)}
+.lede{margin:0 0 var(--s3); max-width:40ch}
+.eyebrow{margin:0 0 var(--s3)}
+h1.page{margin:0 0 var(--s3)}
+.rule{margin:0 0 var(--s3)}
+.sub{max-width:34ch}
+.intro, .flow, .note{max-width:60ch}
+.cta-row{margin-top:var(--s6)}
+
+/* 3. HOME: R2 pull-quote + R3 measure and rhythm (R1 not shipped: coloured bars and light-blue icons stay) */
+main > .intro{margin:0 0 var(--s4)}
+main > .based{border:0; padding:0; margin:var(--s1) 0 var(--s6); max-width:38ch; color:var(--head); text-wrap:pretty}
+main > .based::before{content:""; display:block; width:40px; height:3px; margin:0 0 var(--s2); background:linear-gradient(90deg,var(--orange) 0 50%,var(--green) 50% 100%)}
+.fit-grid{gap:var(--s3)}
+.fit-col{padding:var(--s4)}
+.fit-col h2{margin:0 0 var(--s3)}
+.fit-col ul{gap:12px}
+.fit-col li{padding-left:var(--s4); max-width:none}
+.fit-col li::before{left:var(--s1); top:.68em; width:6px; height:6px}
+.fit-col .offers li{grid-template-columns:20px minmax(0,1fr); gap:12px; padding-left:0}
+.fit-col .offers .ic{margin-top:3px}
+.outcomes{gap:var(--s2)}
+.outcome{padding:var(--s3); gap:var(--s1)}
+.outcome .top{margin-bottom:var(--s1)}
+.outcome .d, .tile-card .d, .pick .d, .paper .hook, .term p:not(.label){color:var(--muted)}
+.statement{padding:var(--s7) var(--s8)}
+.statement .label{margin:0 0 var(--s2)}
+.statement .honest{margin:var(--s2) 0 0; max-width:44ch}
+.person.sm .bio + .bio{margin-top:var(--s2)}
+
+/* 4. INNER PAGES: same accent pattern as Home cards (3px tops cycling blue / green / orange, hairline borders, grey descriptions) */
+/* About: network tiles get 01-04 numbers like Home cards */
+.tiles{gap:var(--s2); counter-reset:tile}
+.tile-card{position:relative; counter-increment:tile; padding:var(--s3); border:1px solid var(--line); border-top:3px solid var(--accent)}
+.tile-card{display:flex; flex-direction:column}
+.tile-card .t{margin:0 0 var(--s1)}
+.tile-card::before{content:counter(tile, decimal-leading-zero); order:-1; display:block; margin:0 0 12px; font-size:var(--fs-eyebrow); font-weight:600; letter-spacing:var(--ls-eyebrow); line-height:var(--lh-eyebrow); color:var(--muted); font-variant-numeric:tabular-nums}
+.tile-card:nth-child(3n+2), .term:nth-child(3n+2), .paper:nth-child(3n+2), .pick:nth-child(3n+2){border-top-color:var(--green)}
+.tile-card:nth-child(3n), .term:nth-child(3n), .paper:nth-child(3n), .pick:nth-child(3n){border-top-color:var(--orange)}
+.tile-card:nth-child(3n+1), .term:nth-child(3n+1), .paper:nth-child(3n+1), .pick:nth-child(3n+1){border-top-color:var(--accent)}
+.terms{gap:var(--s2)}
+.term{padding:var(--s4); border-top-width:3px}
+.term .label{margin:0 0 var(--s1)}
+.term h3{margin:0 0 var(--s1)}
+.term p:not(.label){margin:0 0 var(--s3)}
+.rw{padding:12px var(--s2)}
+ol.how{gap:var(--s4)}
+ol.how b{margin-bottom:var(--s1)}
+/* Callouts become pull-quotes (About 'The principle' / 'The spirit', What we do principle) */
+.principle{display:block; border:0; background:none; padding:0; margin-top:var(--s6); max-width:none}
+.principle::before{content:""; display:block; width:40px; height:3px; margin:0 0 var(--s2); background:linear-gradient(90deg,var(--orange) 0 50%,var(--green) 50% 100%)}
+.principle .label{margin:0 0 var(--s1); min-width:0; font-weight:700}
+.principle p:not(.label){max-width:38ch; color:var(--head); margin:0}
+.principle + .principle{margin-top:var(--s5)}
+/* Insights: paper cards */
+.papers{gap:var(--s3)}
+.paper .pbody{padding:var(--s3); gap:var(--s1)}
+.paper .read{padding-top:var(--s1)}
+/* What we do: selector boxes carry the same coloured tops; panel padding on the scale */
+.picks{gap:var(--s2)}
+.pick{padding:var(--s3) var(--s7) var(--s3) var(--s3); gap:var(--s1)}
+.pick:hover{border-top-color:var(--accent)}
+.panel{padding:var(--s6); gap:var(--s6)}
+.o-head h2{margin:0 0 var(--s3)}
+.o-body .lead{margin:0 0 var(--s3)}
+.o-body p.sit{margin:0 0 var(--s3)}
+ol.steps{gap:var(--s2)}
+/* Contact: email box on the same box spec */
+.reach{padding:var(--s4)}
+.reach .label{margin:0 0 var(--s1)}
+.reach .who{margin:var(--s2) 0 0}
+.reach .who + .who{margin-top:var(--s1)}
+@media (max-width:640px){
+  .fit-col, .term, .reach{padding:var(--s3)}
+  .fit-col h2{margin-bottom:var(--s2)}
+  .outcome, .tile-card{padding:20px}
+  .statement{padding:var(--s5) var(--s3)}
+  .panel{padding:var(--s3); gap:var(--s3)}
+  .pick{padding:var(--s2) var(--s5) var(--s2) var(--s2)}
+  .paper .pbody{padding:20px}
+  .pick{padding:40px 16px 16px}
+  .pick::after{top:16px; right:16px}
+  .contact-opts .reach a.mail{font-size:var(--fs-body)} /* 31-character address must fit one line at 390 */
+}
+
+/* 5. GLASS BUTTONS: Book (Contact only) + quiet 'Start a conversation' sibling (page end, every other page) */
+/* Collabor8 glass CTA: frosted pill + soft orange/blue/green halo. Pure CSS, ~2KB. */
+@property --gb-a{syntax:'<angle>'; inherits:false; initial-value:210deg}
+:root{
+  --gb-text:#0f2446; --gb-glass:rgba(255,255,255,.66); --gb-glass-hover:rgba(255,255,255,.78); --gb-solid:#ffffff;
+  --gb-edge:rgba(255,255,255,.9); --gb-ring:#0f2446; --gb-glow:.40; --gb-glow-hover:.68;
+  --gb-shadow:0 1px 2px rgba(15,36,70,.08), 0 14px 34px -16px rgba(15,36,70,.32);
+  --gb-inset:inset 0 1px 0 rgba(255,255,255,.95), inset 0 -1px 0 rgba(15,36,70,.06);
+  --gb-sheen:rgba(255,255,255,.22);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --gb-text:#f2f6fb; --gb-glass:rgba(21,32,51,.72); --gb-glass-hover:rgba(30,45,70,.72); --gb-solid:#152033;
+    --gb-edge:rgba(255,255,255,.16); --gb-ring:#7fd3f5; --gb-glow:.56; --gb-glow-hover:.80;
+    --gb-shadow:0 1px 2px rgba(0,0,0,.4), 0 16px 40px -18px rgba(0,0,0,.7);
+    --gb-inset:inset 0 1px 0 rgba(255,255,255,.14), inset 0 -1px 0 rgba(0,0,0,.25); --gb-sheen:rgba(255,255,255,.05);
+  }
+}
+:root[data-theme="dark"]{
+  --gb-text:#f2f6fb; --gb-glass:rgba(21,32,51,.72); --gb-glass-hover:rgba(30,45,70,.72); --gb-solid:#152033;
+  --gb-edge:rgba(255,255,255,.16); --gb-ring:#7fd3f5; --gb-glow:.56; --gb-glow-hover:.80;
+  --gb-shadow:0 1px 2px rgba(0,0,0,.4), 0 16px 40px -18px rgba(0,0,0,.7);
+  --gb-inset:inset 0 1px 0 rgba(255,255,255,.14), inset 0 -1px 0 rgba(0,0,0,.25); --gb-sheen:rgba(255,255,255,.05);
+}
+.book-row{margin:0 0 clamp(40px,5vw,56px); padding:14px 18px 18px 0}
+.glass-btn{
+  position:relative; isolation:isolate; display:inline-flex; align-items:center; justify-content:center; gap:12px;
+  min-height:56px; padding:0 26px 0 30px; border-radius:999px;
+  font-family:var(--font-ui); font-size:var(--fs-body,17px); font-weight:600; line-height:1; letter-spacing:.005em;
+  color:var(--gb-text); text-decoration:none; white-space:nowrap;
+  --gb-fill:var(--gb-solid); background:transparent; border:1px solid var(--gb-edge);
+  box-shadow:var(--gb-inset), var(--gb-shadow);
+  transition:transform .7s cubic-bezier(.2,.7,.2,1), box-shadow .7s cubic-bezier(.2,.7,.2,1);
+}
+@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  .glass-btn{--gb-fill:var(--gb-glass); -webkit-backdrop-filter:blur(16px) saturate(1.6); backdrop-filter:blur(16px) saturate(1.6)}
+  .glass-btn:hover,.glass-btn:focus-visible{--gb-fill:var(--gb-glass-hover)}
+}
+/* Halo: blurred conic gradient behind the pill (orange > light blue > green) */
+.glass-btn::before{
+  content:""; position:absolute; z-index:-2; inset:-8px -12px; border-radius:inherit; pointer-events:none;
+  background:conic-gradient(from var(--gb-a), #ee6f1f 0deg, #f5a46b 50deg, #7fd3f5 120deg, #1da1dc 160deg, #2fd08f 220deg, #12a06c 260deg, #7fd3f5 310deg, #ee6f1f 360deg);
+  filter:blur(18px); opacity:var(--gb-glow);
+  transition:opacity .7s cubic-bezier(.2,.7,.2,1), --gb-a .8s cubic-bezier(.2,.7,.2,1), inset .7s cubic-bezier(.2,.7,.2,1);
+}
+/* Glass fill sits ABOVE the halo and below the label, so the halo only shows round the edge and the text always sits on the frosted fill (AA) */
+.glass-btn::after{content:""; position:absolute; z-index:-1; inset:0; border-radius:inherit; pointer-events:none;
+  background-color:var(--gb-fill); background-image:linear-gradient(180deg, var(--gb-sheen), rgba(255,255,255,0) 55%);
+  transition:background-color .7s cubic-bezier(.2,.7,.2,1)}
+.glass-btn .gb-ic{width:18px; height:18px; flex:none; fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.glass-btn:hover,.glass-btn:focus-visible{transform:translateY(-1px)}
+.glass-btn:hover::before,.glass-btn:focus-visible::before{opacity:var(--gb-glow-hover); --gb-a:330deg; inset:-10px -16px}
+.glass-btn:hover .gb-ic,.glass-btn:focus-visible .gb-ic{transform:translateX(3px)}
+.glass-btn:focus-visible{outline:2px solid var(--gb-ring); outline-offset:5px}
+.glass-btn:active{transform:translateY(0)}
+@media (max-width:640px){
+  .book-row{padding:12px 12px 16px}
+  .glass-btn{display:flex; width:100%; min-height:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  .glass-btn,.glass-btn::before,.glass-btn::after,.glass-btn .gb-ic{transition:none}
+  .glass-btn:hover,.glass-btn:focus-visible,.glass-btn:hover .gb-ic,.glass-btn:focus-visible .gb-ic{transform:none}
+  .glass-btn:hover::before,.glass-btn:focus-visible::before{--gb-a:210deg; inset:-8px -12px}
+}
+
+/* --------------------------------------------------------------------------
+   Quiet sibling: "Start a conversation" (page-end CTA on every page except Contact).
+   Same glass pill, navy text and arrow. Smaller, fluid, static soft glow, 250ms hover.
+   -------------------------------------------------------------------------- */
+:root{--gbq-glow:.22; --gbq-glow-hover:.36}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){--gbq-glow:.30; --gbq-glow-hover:.46} }
+:root[data-theme="dark"]{--gbq-glow:.30; --gbq-glow-hover:.46}
+.glass-btn--quiet{
+  min-height:clamp(44px, calc(44px + 8 * (100vw - 390px) / 1050), 52px);
+  padding:0 clamp(18px, calc(18px + 6 * (100vw - 390px) / 1050), 24px) 0 clamp(20px, calc(20px + 6 * (100vw - 390px) / 1050), 26px);
+  gap:clamp(8px, calc(8px + 2 * (100vw - 390px) / 1050), 10px);
+  font-size:clamp(15px, calc(15px + 1 * (100vw - 390px) / 1050), 16px);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.glass-btn--quiet::before{
+  inset:-4px -6px; filter:blur(12px); opacity:var(--gbq-glow);
+  background:linear-gradient(90deg, #ee6f1f, #7fd3f5 50%, #2fd08f);
+  transition:opacity .25s ease;
+}
+.glass-btn--quiet::after{transition:background-color .25s ease}
+.glass-btn--quiet .gb-ic{width:16px; height:16px; transition:transform .25s ease}
+.glass-btn--quiet:hover::before,.glass-btn--quiet:focus-visible::before{opacity:var(--gbq-glow-hover); inset:-4px -6px; --gb-a:210deg}
+.glass-btn--quiet:hover .gb-ic,.glass-btn--quiet:focus-visible .gb-ic{transform:translateX(2px)}
+.glass-btn--quiet:focus-visible{outline-offset:4px}
+.glass-btn--quiet:active{transform:translateY(0); box-shadow:var(--gb-inset)}
+.cta-row--glass{margin-top:var(--s6,48px); padding:0}
+.cta-row--glass .glass-btn--quiet{margin-left:0}
+@media (max-width:640px){ .glass-btn.glass-btn--quiet{display:inline-flex; width:auto; min-height:44px} }
+@media (prefers-reduced-motion:reduce){ .glass-btn--quiet,.glass-btn--quiet::before,.glass-btn--quiet::after,.glass-btn--quiet .gb-ic{transition:none} }
+/* Inline text-link form (used for a second mention on Home and as the Contact fallback) */
+.textcta{font-weight:700; color:var(--accent-txt); text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:1px}
+.textcta::after{content:" \2192"}
+.textcta:hover{color:var(--head)}
+.textcta:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+/* Reduced motion: keep the quiet arrow still too (the quiet hover rule above would otherwise win) */
+@media (prefers-reduced-motion:reduce){ .glass-btn--quiet:hover .gb-ic,.glass-btn--quiet:focus-visible .gb-ic{transform:none} }
+/* <=640: Lee's photo caption spans the full column so "Founder | Managing Director" stays on one line.
+   The caption sits inside figure.photo, so the figure goes full column and the photo keeps its size and ratio via the img cap. */
+@media (max-width:640px){
+  .person .photo, .person.sm .photo{max-width:none; width:100%}
+  .person .photo img{max-width:240px}
+  .person.sm .photo img{max-width:200px}
+  .photo figcaption{max-width:none; width:100%; white-space:nowrap}
+}

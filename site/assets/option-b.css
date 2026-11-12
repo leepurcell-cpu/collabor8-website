@@ -1,0 +1,115 @@
+/* ===== Option A: Quiet lift ===== */
+:root{--ease-out:cubic-bezier(.2,.7,.2,1); --green-t:#eefaf4; --orange-t:#fff4ea}
+/* 1. Two-tone rule echoes the headline: orange then green */
+.rule.duo{width:64px; height:3px; background:linear-gradient(90deg,var(--orange) 0 50%,var(--green) 50% 100%)}
+/* 2. Line icons (1.5px stroke, round) */
+.ic{width:24px; height:24px; flex:none; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; overflow:visible}
+.ic-sm{width:20px; height:20px}
+/* Fit cards: icon chip before the heading, offers get icons too */
+.fit-col h2{display:flex; align-items:center; gap:12px}
+.chip{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:#fff; border:1px solid var(--line); color:var(--accent-txt)}
+.fit-col:nth-child(2) .chip{color:var(--green-txt)}
+.fit-col .offers li{display:grid; grid-template-columns:20px minmax(0,1fr); gap:12px; align-items:start}
+.fit-col .offers .ic{margin-top:3px; color:var(--green-txt)}
+.fit-col:nth-child(2){border-top-color:var(--green)}
+/* Outcome cards: icon, number, hover top bar */
+.outcome{position:relative; padding:20px 20px 22px; gap:8px; border-top:1px solid var(--line); overflow:hidden; transition:border-color .2s var(--ease-out), background .2s var(--ease-out), transform .25s var(--ease-out), box-shadow .25s var(--ease-out)}
+.outcome::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--accent); transform-origin:left; transition:transform .35s var(--ease-out), background .2s}
+.outcome:nth-child(3n+2)::before{background:var(--green)}
+.outcome:nth-child(3n)::before{background:var(--orange)}
+.outcome .top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; color:var(--accent-txt)}
+.outcome .num{font-size:13px; font-weight:600; letter-spacing:.12em; color:var(--muted); font-variant-numeric:tabular-nums}
+.outcome .go{width:18px; height:18px; margin-left:auto; color:var(--accent-txt); opacity:0; transform:translateX(-6px); transition:opacity .2s, transform .25s var(--ease-out)}
+.outcome .d{display:flex; align-items:flex-end; gap:8px}
+.outcome:hover,.outcome:focus-visible{background:var(--card-hover-bg, #fff); border-color:color-mix(in srgb,var(--accent) 45%,var(--line)); transform:translateY(-2px); box-shadow:0 14px 30px -18px rgba(15,36,70,.35)}
+.outcome:hover .go,.outcome:focus-visible .go{opacity:1; transform:none}
+.outcome:hover .t,.outcome:focus-visible .t{color:var(--head)}
+/* Statement: short accent tick */
+.statement{border-left-color:var(--green)}
+/* 3. Reveal */
+.js-reveal [data-reveal]{opacity:0; transform:translateY(14px); transition:opacity .6s var(--ease-out), transform .6s var(--ease-out); transition-delay:var(--d,0ms)}
+.js-reveal [data-reveal].in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  .outcome,.outcome::before,.outcome .go{transition:none}
+  .outcome:hover{transform:none}
+}
+/* ===== Option B layout (hero graphic CSS is appended: Convergence) ===== */
+main{position:relative}
+main > .eyebrow, main > h1, main > .rule, main > .hv-mini, main > .sub, main > .intro, main > .based{position:relative; z-index:1}
+/* Navy "How we work" band: restyled, not duplicated. Motif CSS is appended (cv-band). */
+.statement{position:relative; overflow:hidden; isolation:isolate; border:0; border-left:4px solid var(--green); background:#0f2446}
+.proof{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:clamp(28px,4vw,40px) 0 0; border-top:1px solid rgba(214,226,242,.18)}
+.proof div{padding:20px 20px 0 0}
+.proof div + div{padding-left:20px; border-left:1px solid rgba(214,226,242,.18)}
+.proof dt{margin:0 0 6px; font-size:clamp(36px,4vw,48px); line-height:1; font-weight:800; letter-spacing:-.04em; color:#fff; font-variant-numeric:tabular-nums}
+.proof div:nth-child(1) dt{color:#7fd3f5} .proof div:nth-child(2) dt{color:#2fd08f} .proof div:nth-child(3) dt{color:#ff8a3d}
+.proof dd{margin:0; font-size:15px; line-height:1.45; color:#d6e2f2; max-width:26ch}
+.proof dd b{display:block; color:#fff; font-weight:700; font-size:16px}
+@media (max-width:640px){
+  .proof{grid-template-columns:minmax(0,1fr)}
+  .proof div,.proof div + div{display:grid; grid-template-columns:64px minmax(0,1fr); gap:14px; align-items:baseline; padding:16px 0; border-left:0; border-bottom:1px solid rgba(214,226,242,.18)}
+  .proof div:last-child{border-bottom:0; padding-bottom:0}
+  .proof dt{font-size:36px; margin:0}
+}
+/* Inner page headers: duo rule + corner motif (CSS appended: cv-corner). */
+main.inner{position:relative}
+main.inner > .eyebrow, main.inner > h1, main.inner > .rule, main.inner > .sub{position:relative; z-index:1}
+
+/* ===== B addendum: dark mode, toggles, focus ===== */
+:root{--chip-bg:#fff; --card-hover-bg:#fff; --h1-orange:#e66818}
+.chip{background:var(--chip-bg)}
+.outcome:hover,.outcome:focus-visible{background:var(--card-hover-bg)}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--chip-bg:var(--bg); --card-hover-bg:var(--surface); --h1-orange:var(--orange)}
+}
+:root[data-theme="dark"]{--chip-bg:var(--bg); --card-hover-bg:var(--surface); --h1-orange:var(--orange)}
+:root[data-theme="light"]{--chip-bg:#fff; --card-hover-bg:#fff; --h1-orange:#e66818}
+
+/* Toggle 2 — slightly deeper h1 orange (#e66818, 3.22:1) for large-text contrast.
+   Revert: delete the next rule. h1 .o then uses --orange (#ee6f1f). Light mode only (see --h1-orange above). */
+h1 .o{color:var(--h1-orange)}
+
+/* Toggle 1 — proof points (4 regions / 3 ways to pay / 0 layers).
+   Built on for the preview. To drop them and keep only the faint network pattern:
+   add class "pattern-only" to the .statement div in tools/pages/home.html, then rebuild. */
+.statement.pattern-only .proof{display:none}
+
+/* Keep the motif bleed without a horizontal scrollbar (spec §11 / §14: 1440, 1024, 800, 390). */
+html{overflow-x:hidden}
+
+/* Mid-width: wrap is full-bleed, so a negative right would overflow the viewport (spec §11 / §14). */
+@media (max-width:1072px){
+  .hero-art{right:0}
+}
+
+/* Hero v2, direction 1: Convergence. Load after option-b.css. */
+.hero-art{position:absolute; top:clamp(40px,5vw,80px); right:calc(50% - 50vw); width:min(56vw,800px); margin:0; opacity:1; pointer-events:none; z-index:0}
+.hero-art .hv{display:block; width:100%; height:auto}
+.hero-art .ln{stroke-dasharray:1; stroke-dashoffset:1; animation:hv-draw 2.6s var(--ease-out) forwards; animation-delay:calc(var(--k) * 70ms + .15s)}
+.hero-art .hv{animation:hv-breathe 26s ease-in-out 3s infinite alternate}
+@keyframes hv-draw{to{stroke-dashoffset:0}}
+@keyframes hv-breathe{from{transform:translate3d(0,0,0)} to{transform:translate3d(-6px,8px,0)}}
+@media (prefers-reduced-motion:reduce){ .hero-art .ln{animation:none; stroke-dashoffset:0} .hero-art .hv{animation:none} }
+@media (max-width:1072px){ .hero-art{right:0; top:150px; width:min(44vw,460px)} }
+@media (max-width:900px){ .hero-art{display:none} }
+.hv-mini{display:none}
+@media (max-width:900px){ .hv-mini{display:block; width:112px; height:24px; margin:0 0 24px} }
+.rule-net{display:none !important}
+@media (max-width:900px){ main:not(.inner) > .rule.duo{display:none} }
+
+/* Navy "How we work" band: quiet Convergence. Replaces .statement .band-net rules in option-b.css. Static. */
+.statement .cv-band{position:absolute; z-index:-1; right:0; top:31%; width:min(70%,800px); height:auto; pointer-events:none; opacity:1}
+@media (max-width:900px){ .statement .cv-band{display:none} }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .statement .cv-band{opacity:.85} }
+:root[data-theme="dark"] .statement .cv-band{opacity:.85}
+
+/* Inner page headers: quiet Convergence corner. Replaces main.inner > .page-net rules in option-b.css. Static. */
+main.inner > .page-net{position:absolute; right:calc(50% - 50vw); top:clamp(16px,2.5vw,36px); width:min(25vw,320px); height:auto; opacity:.55; pointer-events:none; z-index:0}
+main.inner > .eyebrow, main.inner > h1, main.inner > .rule, main.inner > .sub{position:relative; z-index:1}
+@media (max-width:1072px){ main.inner > .page-net{right:0; width:min(32vw,300px); opacity:.45} }
+@media (max-width:640px){ main.inner > .page-net{display:none} }
+/* Dark mode: brighter tints, a touch less opacity */
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) main.inner > .page-net path:nth-child(-n+3){stroke:#ff8a3d} :root:not([data-theme="light"]) main.inner > .page-net path:nth-child(n+4){stroke:#2fd08f} :root:not([data-theme="light"]) main.inner > .page-net{opacity:.4} }
+:root[data-theme="dark"] main.inner > .page-net path:nth-child(-n+3){stroke:#ff8a3d}
+:root[data-theme="dark"] main.inner > .page-net path:nth-child(n+4){stroke:#2fd08f}
+:root[data-theme="dark"] main.inner > .page-net{opacity:.4}
