@@ -4,7 +4,7 @@
 
 **Repo:** https://github.com/leepurcell-cpu/collabor8-website (private). `main` = production.
 
-**Hosting:** Netlify, free plan. Site name `zesty-daffodil-39a0bd`, site ID `4a1bcbc8-856a-4ebd-a376-71ae754c7524`, https://zesty-daffodil-39a0bd.netlify.app. Linked to GitHub, branch `main`, publish dir `site`, no build command. Target domain: `collabor8.solutions` (with `www`), registered through Google Workspace. Email runs on this domain: do NOT move nameservers to Netlify; add website DNS records only.
+**Hosting:** GitHub Pages (free) from 12 Nov 2026, published by `.github/workflows/pages.yml` on every push to `main` (folder `site`). Custom domain `collabor8.solutions` via `site/CNAME`. Repo made public 12 Nov 2026 (Lee approved) because free Pages needs a public repo. Old Netlify site `zesty-daffodil-39a0bd` stopped publishing on 7 Nov 2026 (account credits used up) and is no longer used. Email runs on this domain: add website DNS records only, never touch MX/TXT.
 
 **Stack:** Plain static HTML/CSS/JS in `site/`. Page copy is in `tools/pages/<name>.html` (the inside of `<main>`); `tools/build.py` adds the shared header, footer and head tags and writes `site/`. Styles: edit `tools/artifact.css` (copied to `site/assets/styles.css` on build). Tab script for What we do: `site/assets/what-we-do.js`. Inter is self-hosted (`site/fonts/`, weights 400 to 800). No CDN fonts, no cookies, no analytics, no forms.
 
