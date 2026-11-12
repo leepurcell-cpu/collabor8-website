@@ -9,7 +9,9 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 SRC = ROOT / "tools" / "pages"
 BASE = "https://collabor8.solutions"
-VER = "21"
+VER = "22"
+# Google Calendar booking page for the Contact page button. Empty = button box is left out.
+BOOKING_URL = ""
 NAV = [("Home", "/"), ("What we do", "/what-we-do/"), ("Insights", "/insights/"), ("About", "/about/"), ("Contact", "/contact/")]
 LEGAL = ("Collabor8™ is a trading name of Lee Purcell for Project Management Services L.L.C. "
          "Trade Licence No. 1233040.")
@@ -36,6 +38,12 @@ def page(slug, frag, title, desc, main_class, script, noindex=False, image="site
     )
     if body is None:
         body = (SRC / f"{frag}.html").read_text() if frag else ""
+        if "{{BOOKING_URL}}" in body:
+            import re as _r
+            if BOOKING_URL:
+                body = body.replace("{{BOOKING_URL}}", BOOKING_URL)
+            else:
+                body = _r.sub(r'\s*<div class="reach book">.*?</div>', "", body, flags=_r.S)
     cls = f' class="{main_class}"' if main_class else ""
     robots = '<meta name="robots" content="noindex, nofollow">\n' if noindex else ""
     extra = f'<script src="/assets/{script}?v={VER}" defer></script>\n' if script else ""
